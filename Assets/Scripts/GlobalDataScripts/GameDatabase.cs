@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 public class GameDatabase : MonoBehaviour 
 {
-    private static GameDatabase GameDatabaseInstance { get; set; }
+    public static GameDatabase GameDatabaseInstance { get; set; }
 
     [SerializeField]private List<ResourceData> resourceDataList;
 
@@ -15,7 +15,7 @@ public class GameDatabase : MonoBehaviour
    public IReadOnlyList<ResourceData> ResourceDataList => resourceDataList; //makes it a public readonly
     //Public ItemDataList,
     //Public CharacterDataList,
-   // Public EventDataList
+    //Public EventDataList
 
 
 
@@ -30,8 +30,20 @@ public class GameDatabase : MonoBehaviour
         }
         GameDatabaseInstance = this;
         #endregion
+
+        #region LoadToDatabases
+        LoadDatabases();
+
+        #endregion
     }
 
-
+    private void LoadDatabases()
+    {
+        foreach (ResourceData resourceData in resourceDataList)
+        {
+            Debug.Log(" Adding " + resourceData);
+            resourceDataList.Add(resourceData);
+        }
+    }
 
 }

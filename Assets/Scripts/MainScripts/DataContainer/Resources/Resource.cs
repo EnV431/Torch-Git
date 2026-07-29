@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Resource : MonoBehaviour
 {
-    [SerializeField] ResourceData resourceData;
+    [SerializeField] public ResourceData resourceData;
 
     private int value;
     public int Value => value;
