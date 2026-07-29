@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class Resource : MonoBehaviour
+public class Resource
 {
-    [SerializeField] public ResourceData resourceData;
+    public ResourceData resourceData;
 
     private int value;
     public int Value => value;

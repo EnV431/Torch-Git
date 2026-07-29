@@ -31,19 +31,8 @@ public class GameDatabase : MonoBehaviour
         GameDatabaseInstance = this;
         #endregion
 
-        #region LoadToDatabases
-        LoadDatabases();
 
-        #endregion
     }
 
-    private void LoadDatabases()
-    {
-        foreach (ResourceData resourceData in resourceDataList)
-        {
-            Debug.Log(" Adding " + resourceData);
-            resourceDataList.Add(resourceData);
-        }
-    }
 
 }

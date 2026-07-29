@@ -8,6 +8,7 @@ public class GlobalDictionary : MonoBehaviour
 
     private void Start() //on start so it happenes after the database
     {
+
         #region LoadDictionarys
         LoadDictionarys();
         #endregion
@@ -19,8 +20,7 @@ public class GlobalDictionary : MonoBehaviour
         {
             Resource resourceShell = new();
             resourceShell.resourceData = resourceData;
-            resourceShell.name = resourceData.resourceName;
-            Debug.Log(" added " + resourceShell + " to dicionary");
+            Debug.Log(" Added " + resourceShell.resourceData.resourceName + " to dicionary");
         }
 
 
