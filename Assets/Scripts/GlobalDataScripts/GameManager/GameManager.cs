@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
 
     private Dictionary<Type, IGameModule> gameModulesDictionary = new Dictionary<Type, IGameModule>();
     [SerializeField] private List<IGameModule> gameModuleList = new();
-    private void Awake()
+    private void Start() //needs to run on start so that events can be subscribved to before init the module
     {
         #region SingletonSetup
         DontDestroyOnLoad(gameObject);

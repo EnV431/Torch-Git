@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   resourceId: 6
   resourceName: Light Level
+  resourceType: 5

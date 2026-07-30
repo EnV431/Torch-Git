@@ -4,5 +4,5 @@ public interface IGameModule
 {
     void InitializeModule();
 
-    void ResetModuel();
+    void ResetModule();
 }

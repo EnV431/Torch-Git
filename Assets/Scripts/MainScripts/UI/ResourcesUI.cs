@@ -7,16 +7,42 @@ public class ResourcesUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI waterDisplay;
     [SerializeField] private TextMeshProUGUI moneyDisplay;
 
-    private GlobalDictionary globalDict;
-
-    void Start()
+    #region EventSubbing
+    private void OnEnable()
     {
-        globalDict = GlobalDictionary.GlobalDictionaryInstance;
+        IGameStartSetupModule.OnGameStart += UpdateAllResourceUI;
+    }
+    private void OnDisable()
+    {
+        IGameStartSetupModule.OnGameStart -= UpdateAllResourceUI;
+    }
+    #endregion
+
+    public void UpdateAllResourceUI()
+    {
+        Debug.Log("Updating all resource UI");
+        foodDisplay.text = GlobalDictionary.GlobalDictionaryInstance.GetResource(ResourceData.ResourceType.Food).Amount.ToString();
+        waterDisplay.text = GlobalDictionary.GlobalDictionaryInstance.GetResource(ResourceData.ResourceType.Water).Amount.ToString();
+        moneyDisplay.text = GlobalDictionary.GlobalDictionaryInstance.GetResource(ResourceData.ResourceType.Money).Amount.ToString();    
+    
     }
 
-    // Update is called once per frame
-    void Update()
+    public void UpdateSpecificResourceUI(ResourceData.ResourceType resourceType)
     {
-        
+        switch (resourceType)
+        {
+            case ResourceData.ResourceType.Food:
+                foodDisplay.text = GlobalDictionary.GlobalDictionaryInstance.GetResource(ResourceData.ResourceType.Food).Amount.ToString();
+                break;
+            case ResourceData.ResourceType.Water:
+                waterDisplay.text = GlobalDictionary.GlobalDictionaryInstance.GetResource(ResourceData.ResourceType.Water).Amount.ToString();
+                break;
+            case ResourceData.ResourceType.Money:
+                moneyDisplay.text = GlobalDictionary.GlobalDictionaryInstance.GetResource(ResourceData.ResourceType.Money).Amount.ToString();
+                break;
+
+        }
     }
+
 }
+

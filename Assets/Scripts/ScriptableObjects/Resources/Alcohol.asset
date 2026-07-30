@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   resourceId: 7
   resourceName: Alcohol
+  resourceType: 6

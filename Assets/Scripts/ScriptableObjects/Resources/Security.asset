@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   resourceId: 5
   resourceName: Security
+  resourceType: 4
