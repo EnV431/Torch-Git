@@ -5,7 +5,7 @@ public class ResourceData : ScriptableObject
 {
     [Header("Identifiers")]
     public int resourceId;
-    public string resourceName;
+    public string resourceName; //should be replaced later
 
 
 

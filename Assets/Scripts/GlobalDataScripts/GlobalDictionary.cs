@@ -3,11 +3,22 @@ using UnityEngine;
 
 public class GlobalDictionary : MonoBehaviour
 {
+    public static GlobalDictionary GlobalDictionaryInstance { get; set; }
+
     private Dictionary<string, Resource> resourceDictionary = new();
 
 
     private void Start() //on start so it happenes after the database
     {
+        #region SingletonSetup
+        //DontDestroyOnLoad(gameObject);
+        if (GlobalDictionaryInstance != null && GlobalDictionaryInstance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        GlobalDictionaryInstance = this;
+        #endregion
 
         #region LoadDictionarys
         LoadDictionarys();
@@ -18,23 +29,22 @@ public class GlobalDictionary : MonoBehaviour
     {
         foreach (ResourceData resourceData in GameDatabase.GameDatabaseInstance.ResourceDataList)
         {
+            //Debug.Log(resourceData.resourceName);
             Resource resourceShell = new();
             resourceShell.resourceData = resourceData;
+            resourceDictionary.Add(resourceShell.resourceData.resourceName, resourceShell);
             Debug.Log(" Added " + resourceShell.resourceData.resourceName + " to dicionary");
         }
-
-
-
     }
 
-    public T GetResource<T>() where T : Resource //public lookup method
+    public Resource GetResource(string resourceName) // public lookup method
     {
 
-        if (resourceDictionary.TryGetValue(typeof(T).Name, out var resource))
+        if (resourceDictionary.TryGetValue(resourceName, out var resource))
         {
-            return resource as T;
+            return resource;
         }
-        else Debug.LogError(" Game Module not found in Dictionary"); return null;
+        else Debug.LogError(" Resource not found in Dictionary"); return null;
     }
 
 

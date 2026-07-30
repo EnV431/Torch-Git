@@ -22,7 +22,7 @@ public class GameDatabase : MonoBehaviour
     private void Awake()
     {
         #region SingletonSetup
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
         if (GameDatabaseInstance != null && GameDatabaseInstance != this)
         {
             Destroy(gameObject);
