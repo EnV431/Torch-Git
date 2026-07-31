@@ -7,7 +7,7 @@ public class IGameStartSetupModule : MonoBehaviour, IGameModule
     [SerializeField] DifficultyData chosenDifficulty; // being selected through inspecter for now
 
     public static event Action OnGameStart;
-    public static event Action OnResetGame;
+    public static Action OnResetGame;
 
     public void InitializeModule()
     {
