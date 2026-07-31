@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     private void Start() //needs to run on start so that events can be subscribved to before init the module
     {
         #region SingletonSetup
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject); //for testing this off may be changed later
         if (GameManagerInstance != null && GameManagerInstance != this)
         {
             Destroy(gameObject);

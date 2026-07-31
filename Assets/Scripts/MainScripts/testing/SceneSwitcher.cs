@@ -4,9 +4,16 @@ using UnityEngine.SceneManagement;
 
 public class SceneSwitcher : MonoBehaviour
 {
+    public static SceneSwitcher sceneSwitcher { get; set; }
     private void Start()
     {
         DontDestroyOnLoad(this);
+        if (sceneSwitcher != null && sceneSwitcher != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        sceneSwitcher = this;
     }
     private void Update()
     {
