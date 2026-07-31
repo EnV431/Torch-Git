@@ -27,13 +27,13 @@ public class IGameStartSetupModule : MonoBehaviour, IGameModule
         if (GlobalDictionary.GlobalDictionaryInstance == null) Debug.Log("global dict is null"); 
         if (chosenDifficulty == null) Debug.Log("global dict is null");
 
-        GlobalDictionary.GlobalDictionaryInstance.ChangeResource(ResourceData.ResourceType.Food, chosenDifficulty.food);
-        GlobalDictionary.GlobalDictionaryInstance.ChangeResource(ResourceData.ResourceType.Water, chosenDifficulty.water);
-        GlobalDictionary.GlobalDictionaryInstance.ChangeResource(ResourceData.ResourceType.Money, chosenDifficulty.money);
-        GlobalDictionary.GlobalDictionaryInstance.ChangeResource(ResourceData.ResourceType.Happiness, chosenDifficulty.happiness);
-        GlobalDictionary.GlobalDictionaryInstance.ChangeResource(ResourceData.ResourceType.Security, chosenDifficulty.security);
-        GlobalDictionary.GlobalDictionaryInstance.ChangeResource(ResourceData.ResourceType.LightLevel, chosenDifficulty.lightLevel);
-        GlobalDictionary.GlobalDictionaryInstance.ChangeResource(ResourceData.ResourceType.Alcohol, chosenDifficulty.alcohol);
+        GlobalDictionary.GlobalDictionaryInstance.SetResource(ResourceData.ResourceType.Food, chosenDifficulty.food);
+        GlobalDictionary.GlobalDictionaryInstance.SetResource(ResourceData.ResourceType.Water, chosenDifficulty.water);
+        GlobalDictionary.GlobalDictionaryInstance.SetResource(ResourceData.ResourceType.Money, chosenDifficulty.money);
+        GlobalDictionary.GlobalDictionaryInstance.SetResource(ResourceData.ResourceType.Happiness, chosenDifficulty.happiness);
+        GlobalDictionary.GlobalDictionaryInstance.SetResource(ResourceData.ResourceType.Security, chosenDifficulty.security);
+        GlobalDictionary.GlobalDictionaryInstance.SetResource(ResourceData.ResourceType.LightLevel, chosenDifficulty.lightLevel);
+        GlobalDictionary.GlobalDictionaryInstance.SetResource(ResourceData.ResourceType.Alcohol, chosenDifficulty.alcohol);
     }
 
 

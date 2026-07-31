@@ -12,5 +12,10 @@ public class Resource
         amount += amountToChange;    
     }
 
+    public void SetAmount(int amountToSet)
+    { 
+        amount = amountToSet;
+    }
+
 
 }

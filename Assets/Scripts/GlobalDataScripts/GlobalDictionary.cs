@@ -36,7 +36,7 @@ public class GlobalDictionary : MonoBehaviour
             Debug.Log(" Added " + resourceShell.resourceData.resourceName + " to dictionary");
         }
     }
-
+    #region ResourceFuncs
     public Resource GetResource(ResourceData.ResourceType resourceType) // public lookup method
     {
         if (resourceDictionary.TryGetValue(resourceType, out var resource))
@@ -54,5 +54,14 @@ public class GlobalDictionary : MonoBehaviour
         }
         else Debug.LogError(" Resource not found in Dictionary"); return;
     }
+    public void SetResource(ResourceData.ResourceType resourceType, int amountToChange)
+    {
+        if (resourceDictionary.TryGetValue(resourceType, out var resource))
+        {
+            resource.SetAmount(amountToChange);
+        }
+        else Debug.LogError(" Resource not found in Dictionary"); return;
+    }
 
+    #endregion
 }
