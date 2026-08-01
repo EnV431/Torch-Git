@@ -25,5 +25,11 @@ public class SceneSwitcher : MonoBehaviour
         {
             SceneManager.LoadScene(1);
         }
+
+        if (Keyboard.current.digit9Key.wasReleasedThisFrame)
+        {
+            GlobalDictionary.GlobalDictionaryInstance.TriggerIncident("Mold Outbreak");
+        }
+
     }
 }

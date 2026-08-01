@@ -11,7 +11,7 @@ public class IGameStartSetupModule : MonoBehaviour, IGameModule
 
     public void InitializeModule()
     {
-        Debug.Log("Init GameStartUp");
+        Debug.Log("Initializing GameStartUp");
         SetResourceValuesToChosenDifficulty();
         OnGameStart?.Invoke();
     }

@@ -200,6 +200,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f0e0e76c30bf4d742b46b7cd36308283, type: 2}
   - {fileID: 11400000, guid: b0da5ff56c0db2a4eaecf202aa66798b, type: 2}
   - {fileID: 11400000, guid: 50faf56bbc418284a95ec31864e38afc, type: 2}
+  incidentDataList:
+  - {fileID: 11400000, guid: 0830fc26f346c7f4fb92535e4ba1ab11, type: 2}
 --- !u!4 &1183543905
 Transform:
   m_ObjectHideFlags: 0

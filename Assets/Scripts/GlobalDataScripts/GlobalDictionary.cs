@@ -6,6 +6,7 @@ public class GlobalDictionary : MonoBehaviour
     public static GlobalDictionary GlobalDictionaryInstance { get; set; }
 
     private Dictionary<ResourceData.ResourceType, Resource> resourceDictionary = new();
+    private Dictionary<string, Incident> incidentDictionary = new();
 
 
     private void Start() //on start so it happenes after the database
@@ -33,7 +34,25 @@ public class GlobalDictionary : MonoBehaviour
             Resource resourceShell = new();
             resourceShell.resourceData = resourceData;
             resourceDictionary.Add(resourceShell.resourceData.resourceType, resourceShell);
-            Debug.Log(" Added " + resourceShell.resourceData.resourceName + " to dictionary");
+            //Debug.Log(" Added " + resourceShell.resourceData.resourceName + " to dictionary");
+        }
+
+        foreach (IncidentData incidentData in GameDatabase.GameDatabaseInstance.IncidentDataList)
+        {
+            //Debug.Log(incidentData.incidentName);
+            Incident incidentShell = new();
+            if (incidentData is ResourceIncidentData resourceIncidentData)
+            {
+                incidentShell.incidentData = resourceIncidentData;
+            }
+            else
+            {
+                incidentShell.incidentData = incidentData;
+                Debug.Log("Incident is using default incident data / Thats not good");
+            }
+            
+            incidentDictionary.Add(incidentShell.incidentData.incidentName, incidentShell);
+            Debug.Log(" Added " + incidentShell.incidentData.incidentName + " to dictionary");
         }
     }
     #region ResourceFuncs
@@ -62,6 +81,31 @@ public class GlobalDictionary : MonoBehaviour
         }
         else Debug.LogError(" Resource not found in Dictionary"); return;
     }
+    #endregion
+
+    #region IncidentFuncs
+
+    public Incident GetIncident(string incidentName) // public lookup method
+    {
+        if (incidentDictionary.TryGetValue(incidentName, out var incident))
+        {
+            return incident;
+        }
+        else Debug.LogError(" Incident not found in Dictionary"); return null;
+    }
+
+    public void TriggerIncident(string incidentName)
+    {
+        Incident incident = GetIncident(incidentName);
+        if (incident != null)
+        {
+            incident.TriggerIncidentExecution();
+        }
+    }
 
     #endregion
+
+
+
+
 }
