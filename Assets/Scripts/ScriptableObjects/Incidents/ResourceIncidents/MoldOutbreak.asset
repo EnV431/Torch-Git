@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: MoldOutbreak
   m_EditorClassIdentifier: 
   incidentName: Mold Outbreak
-  resourceChanges:
+  incidentTypeId: 1
+  resourceChangesList:
   - resourceType: 0
     amountToChange: -10

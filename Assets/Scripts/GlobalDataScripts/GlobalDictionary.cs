@@ -40,21 +40,25 @@ public class GlobalDictionary : MonoBehaviour
         foreach (IncidentData incidentData in GameDatabase.GameDatabaseInstance.IncidentDataList)
         {
             //Debug.Log(incidentData.incidentName);
-            Incident incidentShell = new();
-            if (incidentData is ResourceIncidentData resourceIncidentData)
+            if (incidentData is ResourceIncidentData resourceIncidentData) //just do this but for other incident types as well
             {
-                incidentShell.incidentData = resourceIncidentData;
-            }
-            else
-            {
-                incidentShell.incidentData = incidentData;
-                Debug.Log("Incident is using default incident data / Thats not good");
-            }
-            
-            incidentDictionary.Add(incidentShell.incidentData.incidentName, incidentShell);
-            Debug.Log(" Added " + incidentShell.incidentData.incidentName + " to dictionary");
+                ResourceIncident incidentShell = new();
+                AddResourceIncident(incidentShell, resourceIncidentData);
+            }            
         }
     }
+    #region AddToDictionaryLogicForDifferentIncidentTypes
+
+    private void AddResourceIncident(ResourceIncident incidentShell, ResourceIncidentData resourceIncidentData) //just do this but for other incident types as well
+    {
+        incidentShell.resourceIncidentData = resourceIncidentData;
+        incidentDictionary.Add(incidentShell.resourceIncidentData.incidentName, incidentShell);
+        Debug.Log(" Added " + incidentShell.resourceIncidentData.incidentName + " to dictionary");
+    }
+
+    #endregion
+
+
     #region ResourceFuncs
     public Resource GetResource(ResourceData.ResourceType resourceType) // public lookup method
     {
@@ -97,10 +101,16 @@ public class GlobalDictionary : MonoBehaviour
     public void TriggerIncident(string incidentName)
     {
         Incident incident = GetIncident(incidentName);
-        if (incident != null)
+        if (incident is ResourceIncident resourceIncident)
         {
-            incident.TriggerIncidentExecution();
+            resourceIncident.TriggerIncidentExecution();
+            Debug.Log("triggering " + incidentName);
         }
+        else
+        {
+            Debug.Log("triggering base incident from dict / not hunky dory");
+        }
+
     }
 
     #endregion

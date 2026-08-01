@@ -7,13 +7,10 @@ public class Incident
     //public CharacterIncidentData characterIncidentData;
     protected virtual void ExecuteIncident()
     {
-        Debug.Log("Base Incident class function triggered");
+        Debug.Log("Base Incident class function triggered / Bad");
     }
     public void TriggerIncidentExecution() 
     {
-        if (this != null)
-        {
-            ExecuteIncident();
-        }        
+        ExecuteIncident();       
     }
 }

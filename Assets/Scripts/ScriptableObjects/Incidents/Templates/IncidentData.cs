@@ -4,4 +4,5 @@ using UnityEngine;
 public class IncidentData : ScriptableObject
 {
     public string incidentName;
+    public int incidentTypeId;
 }

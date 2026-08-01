@@ -14,10 +14,14 @@ public class ResourcesUI : MonoBehaviour //placeholder UI
     private void OnEnable()
     {
         IGameStartSetupModule.OnGameStart += UpdateAllResourceUI;
+        GlobalUIManager.GlobalUIManagerInstance.UpdateResourceUI += UpdateAllResourceUI;
+        GlobalUIManager.GlobalUIManagerInstance.UpdateSpecificResourceUI += UpdateSpecificResourceUI;
     }
     private void OnDisable()
     {
         IGameStartSetupModule.OnGameStart -= UpdateAllResourceUI;
+        GlobalUIManager.GlobalUIManagerInstance.UpdateResourceUI -= UpdateAllResourceUI;
+        GlobalUIManager.GlobalUIManagerInstance.UpdateSpecificResourceUI -= UpdateSpecificResourceUI;
     }
     #endregion
 
