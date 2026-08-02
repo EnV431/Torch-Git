@@ -3,10 +3,11 @@ using UnityEngine;
 [System.Serializable]
 public struct PersonalInfo
 {
-    public string Name;
-    public string Species;
-    public string Description;
-    public string History;
+    public string name;
+    public int age;
+    public string species;
+    public string description;
+    public string history;
 }
 
 [System.Serializable]
