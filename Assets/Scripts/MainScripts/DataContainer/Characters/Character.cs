@@ -5,16 +5,24 @@ public class Character
 {    
     public CharacterData characterData;
     
-    public CharacterAttributes characterAttributes;
-    public CharacterStats characterStats;
-    public CharacterDietStats characterDietStats;
+    public CharacterAttributes CharacterAttributes { get; private set; }
+    public CharacterStats CharacterStats { get; private set; }
+    public CharacterDietStats CharacterDietStats { get; private set; }
 
     public virtual void CopyDataFromCharacterData()
     { 
-        characterAttributes = characterData.characterAttributes;
-        characterStats = characterData.characterStats;
-        characterDietStats = characterData.characterDietStats;
-
+        CharacterAttributes = characterData.characterAttributes;
+        CharacterStats = characterData.characterStats;
+        CharacterDietStats = characterData.characterDietStats;
+        InitializeStats();
     }
+
+    private void InitializeStats()
+    {
+        CharacterAttributes.InitializeStats();
+        CharacterStats.InitializeStats();
+        CharacterDietStats.InitializeStats();
+    }
+
 
 }
