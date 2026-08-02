@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02011094147e3e74f8828a7ad1c08fe3, type: 3}
+  m_Name: Alcoholic
+  m_EditorClassIdentifier: 
+  perk:
+    perkName: Alcoholic
+    perkId: 1
+    perkDescription: Beer
+    perkModifier: 20

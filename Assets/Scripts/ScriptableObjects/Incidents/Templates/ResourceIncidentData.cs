@@ -9,7 +9,7 @@ public struct ResourceChangeStruct
     public int amountToChange;
 }
 
-[CreateAssetMenu(fileName = "ResourceIncidentData", menuName = "Scriptable Objects/IncidentData/ResourceIncidentData")]
+[CreateAssetMenu(fileName = "ResourceIncidentData", menuName = "Scriptable Objects/IncidentDatas/ResourceIncidentData")]
 public class ResourceIncidentData : IncidentData
 {
     public List<ResourceChangeStruct> resourceChangesList;

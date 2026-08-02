@@ -8,6 +8,7 @@ public class GlobalDictionary : MonoBehaviour
     private Dictionary<ResourceData.ResourceType, Resource> resourceDictionary = new();
     private Dictionary<string, Incident> incidentDictionary = new();
 
+    private Dictionary<string, PerkData> perkDictionary = new();
 
     private void Start() //on start so it happenes after the database
     {
@@ -45,6 +46,11 @@ public class GlobalDictionary : MonoBehaviour
                 ResourceIncident incidentShell = new();
                 AddResourceIncident(incidentShell, resourceIncidentData);
             }            
+        }
+
+        foreach (PerkData perkData in GameDatabase.GameDatabaseInstance.PerkDataList)
+        {            
+            perkDictionary.Add(perkData.perk.perkName, perkData);
         }
     }
     #region AddToDictionaryLogicForDifferentIncidentTypes
@@ -110,12 +116,21 @@ public class GlobalDictionary : MonoBehaviour
         {
             Debug.Log("triggering base incident from dict / not hunky dory");
         }
-
     }
 
     #endregion
 
 
 
-
+    #region PerkFuncs
+    public PerkData GetPerk(string perkName) // public lookup method
+    {
+        if (perkDictionary.TryGetValue(perkName, out var perk))
+        {
+            return perk;
+        }
+        else Debug.LogError(" Perk not found in Dictionary"); return null;
+    }
+    #endregion
 }
+
