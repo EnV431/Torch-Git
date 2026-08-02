@@ -22,8 +22,37 @@ MonoBehaviour:
   characterProficienciesArray:
   - proficiencyData: {fileID: 11400000, guid: 1d21693a2aee65645bc25080e651e77a, type: 2}
   characterAttributes:
-    Strength: 0
-    Dexterity: 0
-    Endurance: 0
-    Willpower: 0
-    Mind: 0
+    Strength:
+      _baseValue: 0
+    Dexterity:
+      _baseValue: 0
+    Endurance:
+      _baseValue: 0
+    Willpower:
+      _baseValue: 0
+    Mind:
+      _baseValue: 0
+  characterStats:
+    PhysicalHealth:
+      _baseValue: 0
+    Immunity:
+      _baseValue: 0
+    Hydration:
+      _baseValue: 0
+    Happiness:
+      _baseValue: 0
+    Energy:
+      _baseValue: 0
+    Inebriation:
+      _baseValue: 0
+  characterDietStats:
+    Protein:
+      _baseValue: 0
+    Sugar:
+      _baseValue: 0
+    Nutrients:
+      _baseValue: 0
+    Grain:
+      _baseValue: 0
+    Diary:
+      _baseValue: 0
