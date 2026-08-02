@@ -13,6 +13,7 @@ public class ResourceData : ScriptableObject
         LightLevel,
         Alcohol
     }
+    public bool isCapped;
 
     [Header("Identifiers")]
     public int resourceId;

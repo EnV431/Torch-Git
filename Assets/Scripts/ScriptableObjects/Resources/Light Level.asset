@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46e9bff541b07724ca26269921c85756, type: 3}
   m_Name: Light Level
   m_EditorClassIdentifier: 
+  isCapped: 1
   resourceId: 6
   resourceName: Light Level
   resourceType: 5

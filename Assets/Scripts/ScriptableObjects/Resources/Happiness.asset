@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46e9bff541b07724ca26269921c85756, type: 3}
   m_Name: Happiness
   m_EditorClassIdentifier: 
+  isCapped: 1
   resourceId: 3
   resourceName: Happiness
   resourceType: 3

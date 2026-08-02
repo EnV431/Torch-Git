@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   food: 50
   water: 50
-  money: 1000
+  money: 200
   happiness: 100
   security: 25
   lightLevel: 95
