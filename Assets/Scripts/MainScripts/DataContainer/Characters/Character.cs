@@ -10,11 +10,15 @@ public class Character
     public CharacterDietStats CharacterDietStats { get; private set; }
 
     public virtual void CopyDataFromCharacterData()
-    { 
-        CharacterAttributes = characterData.characterAttributes;
-        CharacterStats = characterData.characterStats;
-        CharacterDietStats = characterData.characterDietStats;
-        InitializeStats();
+    {
+        if (characterData != null)
+        {
+            CharacterAttributes = new CharacterAttributes(characterData.characterAttributes);
+            CharacterStats = new CharacterStats(characterData.characterStats);
+            CharacterDietStats = new CharacterDietStats(characterData.characterDietStats);
+            InitializeStats();
+        }
+
     }
 
     private void InitializeStats()
