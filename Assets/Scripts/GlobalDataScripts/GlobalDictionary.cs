@@ -8,7 +8,7 @@ public class GlobalDictionary : MonoBehaviour
     private Dictionary<ResourceData.ResourceType, Resource> resourceDictionary = new();
     private Dictionary<string, Incident> incidentDictionary = new();
 
-    private Dictionary<string, PerkData> perkDictionary = new();
+    private Dictionary<string, TraitData> traitDictionary = new();
 
     private void Start() //on start so it happenes after the database
     {
@@ -48,9 +48,9 @@ public class GlobalDictionary : MonoBehaviour
             }            
         }
 
-        foreach (PerkData perkData in GameDatabase.GameDatabaseInstance.PerkDataList)
+        foreach (TraitData traitData in GameDatabase.GameDatabaseInstance.TraitDataList)
         {            
-            perkDictionary.Add(perkData.perk.perkName, perkData);
+            traitDictionary.Add(traitData.traitInfo.traitName, traitData);
         }
     }
     #region AddToDictionaryLogicForDifferentIncidentTypes
@@ -122,14 +122,14 @@ public class GlobalDictionary : MonoBehaviour
 
 
 
-    #region PerkFuncs
-    public PerkData GetPerk(string perkName) // public lookup method
+    #region TraitFuncs
+    public TraitData GetTrait(string traitName) // public lookup method
     {
-        if (perkDictionary.TryGetValue(perkName, out var perk))
+        if (traitDictionary.TryGetValue(traitName, out var trait))
         {
-            return perk;
+            return trait;
         }
-        else Debug.LogError(" Perk not found in Dictionary"); return null;
+        else Debug.LogError(" Trait not found in Dictionary"); return null;
     }
     #endregion
 }

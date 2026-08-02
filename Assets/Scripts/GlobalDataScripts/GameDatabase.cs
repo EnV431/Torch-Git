@@ -11,14 +11,14 @@ public class GameDatabase : MonoBehaviour
     [SerializeField]private List<IncidentData> incidentDataList;
     #endregion
 
-    [SerializeField]private List<PerkData> perkDataList;
+    [SerializeField]private List<TraitData> traitDataList;
 
     public IReadOnlyList<ResourceData> ResourceDataList => resourceDataList; //makes it a public readonly
    public IReadOnlyList<IncidentData> IncidentDataList => incidentDataList; //makes it a public readonly
     //Public ItemDataList,
     //Public CharacterDataList,
 
-    public IReadOnlyList<PerkData> PerkDataList => perkDataList; //makes it a public readonly   
+    public IReadOnlyList<TraitData> TraitDataList => traitDataList; //makes it a public readonly   
     private void Awake()
     {
         #region SingletonSetup
