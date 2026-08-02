@@ -15,4 +15,11 @@ public class Stat
         _currentValue = _baseValue;
     }
 
+    public Stat() {}
+
+    public Stat(Stat template)
+    {
+        _baseValue = template.BaseValue;
+        _currentValue = template.CurrentValue;
+    }
 }

@@ -28,6 +28,15 @@ public struct CharacterAttributes
     public Stat Willpower;
     public Stat Mind;
 
+    public CharacterAttributes(CharacterAttributes template)
+    {
+        Strength = new Stat(template.Strength);
+        Dexterity = new Stat(template.Dexterity);
+        Endurance = new Stat(template.Endurance);
+        Willpower = new Stat(template.Willpower);
+        Mind = new Stat(template.Mind);
+    }
+
     public void InitializeStats()
     {
         Strength.SetCurrentValueToBaseValue();
@@ -46,6 +55,16 @@ public struct CharacterStats
     public Stat Happiness;
     public Stat Energy;
     public Stat Inebriation;
+
+    public CharacterStats(CharacterStats template)
+    {
+        PhysicalHealth = new Stat(template.PhysicalHealth);
+        Immunity = new Stat(template.Immunity);
+        Hydration = new Stat(template.Hydration);
+        Happiness = new Stat(template.Happiness);
+        Energy = new Stat(template.Energy);
+        Inebriation = new Stat(template.Inebriation);
+    }
 
     public void InitializeStats()
     {
@@ -66,6 +85,14 @@ public struct CharacterDietStats
     public Stat Grain;
     public Stat Diary;
 
+    public CharacterDietStats(CharacterDietStats template)
+    {
+        Protein = new Stat(template.Protein);
+        Sugar = new Stat(template.Sugar);
+        Nutrients = new Stat(template.Nutrients);
+        Grain = new Stat(template.Grain);
+        Diary = new Stat(template.Diary);
+    }
     public void InitializeStats()
     {
         Protein.SetCurrentValueToBaseValue();
