@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class Character
 {    
-    public CharacterData characterData;
     
     public CharacterAttributes CharacterAttributes { get; private set; }
     public CharacterStats CharacterStats { get; private set; }
@@ -13,7 +12,7 @@ public class Character
     public CharacterTraitContainer[] CharacterTraits { get; private set; }
     public CharacterProficiencyContainer[] CharacterProficiencies { get; private set; }
 
-    public virtual void CopyDataFromCharacterData()
+    public virtual void CopyDataFromCharacterData(CharacterData characterData)
     {
         if (characterData == null)
         {
@@ -22,7 +21,6 @@ public class Character
         }
         else
         {
-            InitializeStats();
             CharacterAttributes = new CharacterAttributes(characterData.characterAttributes);
             CharacterStats = new CharacterStats(characterData.characterStats);
             CharacterDietStats = new CharacterDietStats(characterData.characterDietStats);
@@ -30,16 +28,6 @@ public class Character
             CharacterTraits = characterData.characterTraitsArray;
             CharacterProficiencies = characterData.characterProficienciesArray;
         }
-
-
     }
-
-    private void InitializeStats()
-    {
-        CharacterAttributes.InitializeStats();
-        CharacterStats.InitializeStats();
-        CharacterDietStats.InitializeStats();
-    }
-
 
 }
