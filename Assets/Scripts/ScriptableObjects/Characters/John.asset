@@ -14,7 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   personalInfo:
     Name: John
-    Nationality: English
+    Species: Rabbit Man
     Description: Proper Lad
-  characterPerksList:
-  - perkData: {fileID: 11400000, guid: 66c3060be5c555346b16c7a7f7d98ef3, type: 2}
+    History: John was recruited 60 days ago at an inn for 40 gold
+  characterTraitsArray:
+  - traitData: {fileID: 11400000, guid: 9b8b75e874303144aaa6498ee76fe00c, type: 2}
+  characterProficienciesArray:
+  - proficiencyData: {fileID: 11400000, guid: 1d21693a2aee65645bc25080e651e77a, type: 2}
+  characterAttributes:
+    Strength: 0
+    Dexterity: 0
+    Endurance: 0
+    Willpower: 0
+    Mind: 0

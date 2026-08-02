@@ -10,7 +10,7 @@ public struct TraitStruct
     public float traitModifier;
 }
 
-[CreateAssetMenu(fileName = "TraitData", menuName = "Scriptable Objects/TraitData")]
+[CreateAssetMenu(fileName = "TraitData", menuName = "Scriptable Objects/CharacterDatas/TraitData")]
 public class TraitData : ScriptableObject
 {
     public TraitStruct traitInfo;   

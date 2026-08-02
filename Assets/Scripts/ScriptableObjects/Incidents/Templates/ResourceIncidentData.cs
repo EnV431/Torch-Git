@@ -12,5 +12,5 @@ public struct ResourceChangeStruct
 [CreateAssetMenu(fileName = "ResourceIncidentData", menuName = "Scriptable Objects/IncidentDatas/ResourceIncidentData")]
 public class ResourceIncidentData : IncidentData
 {
-    public List<ResourceChangeStruct> resourceChangesList;
+    public ResourceChangeStruct[] resourceChangesArray;
 }
