@@ -13,17 +13,47 @@ MonoBehaviour:
   m_Name: John
   m_EditorClassIdentifier: 
   personalInfo:
-    Name: John
-    Species: Rabbit Man
-    Description: Proper Lad
-    History: John was recruited 60 days ago at an inn for 40 gold
+    name: John
+    age: 33
+    species: Rabbit Man
+    description: Proper Lad
+    history: Recurited from Inn
   characterTraitsArray:
   - traitData: {fileID: 11400000, guid: 9b8b75e874303144aaa6498ee76fe00c, type: 2}
   characterProficienciesArray:
   - proficiencyData: {fileID: 11400000, guid: 1d21693a2aee65645bc25080e651e77a, type: 2}
   characterAttributes:
-    Strength: 0
-    Dexterity: 0
-    Endurance: 0
-    Willpower: 0
-    Mind: 0
+    Strength:
+      _baseValue: 51
+    Dexterity:
+      _baseValue: 72
+    Endurance:
+      _baseValue: 28
+    Willpower:
+      _baseValue: 19
+    Mind:
+      _baseValue: 70
+  characterStats:
+    PhysicalHealth:
+      _baseValue: 85
+    Immunity:
+      _baseValue: 32
+    Hydration:
+      _baseValue: 74
+    Happiness:
+      _baseValue: 57
+    Energy:
+      _baseValue: 28
+    Inebriation:
+      _baseValue: 50
+  characterDietStats:
+    Protein:
+      _baseValue: 43
+    Sugar:
+      _baseValue: 56
+    Nutrients:
+      _baseValue: 58
+    Grain:
+      _baseValue: 69
+    Diary:
+      _baseValue: 82
