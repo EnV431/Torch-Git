@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
         foreach (var module in gameModuleList)
         {
             gameModulesDictionary.Add(module.GetType(), module); //add module to dict
-            Debug.Log(module + " added to dict");
+            //Debug.Log(module + " added to dict");
             module.InitializeModule(); //inits module
         }
     }

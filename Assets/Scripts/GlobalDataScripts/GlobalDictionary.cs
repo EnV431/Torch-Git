@@ -7,6 +7,7 @@ public class GlobalDictionary : MonoBehaviour
 
     private Dictionary<ResourceData.ResourceType, Resource> resourceDictionary = new();
     private Dictionary<string, Incident> incidentDictionary = new();
+    private Dictionary<string, Character> characterDictionary = new();
 
     private Dictionary<string, TraitData> traitDictionary = new();
 
@@ -45,8 +46,18 @@ public class GlobalDictionary : MonoBehaviour
             {
                 ResourceIncident incidentShell = new();
                 AddResourceIncident(incidentShell, resourceIncidentData);
+                //Debug.Log(" Added " + incidentShell.resourceIncidentData.incidentName + " to dictionary");
             }            
         }
+        foreach (CharacterData characterData in GameDatabase.GameDatabaseInstance.CharacterDataList)
+        {
+            Character characterShell = new();
+            characterShell.CopyDataFromCharacterData(characterData);
+
+            characterDictionary.Add(characterShell.PersonalInfo.name, characterShell);
+            Debug.Log(" Added " + characterShell.PersonalInfo.name + " to dictionary");
+        }
+
 
         foreach (TraitData traitData in GameDatabase.GameDatabaseInstance.TraitDataList)
         {            

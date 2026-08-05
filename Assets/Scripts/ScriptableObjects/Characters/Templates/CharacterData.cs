@@ -38,14 +38,6 @@ public struct CharacterAttributes
         Mind = new Stat(template.Mind);
     }
 
-    public void InitializeStats()
-    {
-        Strength.SetCurrentValueToBaseValue();
-        Dexterity.SetCurrentValueToBaseValue();
-        Endurance.SetCurrentValueToBaseValue();
-        Willpower.SetCurrentValueToBaseValue();
-        Mind.SetCurrentValueToBaseValue();
-    }
 }
 [System.Serializable]
 public struct CharacterStats
@@ -67,15 +59,6 @@ public struct CharacterStats
         Inebriation = new Stat(template.Inebriation);
     }
 
-    public void InitializeStats()
-    {
-        PhysicalHealth.SetCurrentValueToBaseValue();
-        Immunity.SetCurrentValueToBaseValue();
-        Hydration.SetCurrentValueToBaseValue();
-        Happiness.SetCurrentValueToBaseValue();
-        Energy.SetCurrentValueToBaseValue();
-        Inebriation.SetCurrentValueToBaseValue();
-    }
 }
 [System.Serializable]
 public struct CharacterDietStats
@@ -94,14 +77,7 @@ public struct CharacterDietStats
         Grain = new Stat(template.Grain);
         Diary = new Stat(template.Diary);
     }
-    public void InitializeStats()
-    {
-        Protein.SetCurrentValueToBaseValue();
-        Sugar.SetCurrentValueToBaseValue();
-        Nutrients.SetCurrentValueToBaseValue();
-        Grain.SetCurrentValueToBaseValue();
-        Diary.SetCurrentValueToBaseValue();
-    }
+
 }
 
 [CreateAssetMenu(fileName = "CharacterData", menuName = "Scriptable Objects/CharacterDatas/CharacterData")]
