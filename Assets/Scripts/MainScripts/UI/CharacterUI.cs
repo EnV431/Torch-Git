@@ -67,7 +67,7 @@ public class CharacterUI : MonoBehaviour
     {
         characterUIObject.SetActive(true);
     }
-    private void TurnOffCharacterUIObject()
+    public void TurnOffCharacterUIObject()
     {
         characterUIObject.SetActive(false);
     }
