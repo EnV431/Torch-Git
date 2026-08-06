@@ -67,7 +67,7 @@ public struct CharacterDietStats
     public Stat Sugar;
     public Stat Nutrients;
     public Stat Grain;
-    public Stat Diary;
+    public Stat Dairy;
 
     public CharacterDietStats(CharacterDietStats template)
     {
@@ -75,7 +75,7 @@ public struct CharacterDietStats
         Sugar = new Stat(template.Sugar);
         Nutrients = new Stat(template.Nutrients);
         Grain = new Stat(template.Grain);
-        Diary = new Stat(template.Diary);
+        Dairy = new Stat(template.Dairy);
     }
 
 }

@@ -25,7 +25,7 @@ public class Character
         Sugar = 17,
         Nutrients = 18,
         Grain = 19,
-        Diary = 20,
+        Dairy = 20,
     }
 
     public InfoEnum infoEnum;

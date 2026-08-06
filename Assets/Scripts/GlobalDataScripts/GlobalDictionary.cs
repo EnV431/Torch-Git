@@ -131,6 +131,18 @@ public class GlobalDictionary : MonoBehaviour
 
     #endregion
 
+    #region CharacterFuncs
+
+    public Character GetCharacter(string characterName) // public lookup method
+    {
+        if (characterDictionary.TryGetValue(characterName, out var character))
+        {
+            return character;
+        }
+        else Debug.LogError(" Character not found in Dictionary"); return null;
+    }
+
+    #endregion
 
 
     #region TraitFuncs

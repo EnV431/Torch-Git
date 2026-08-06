@@ -230,8 +230,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 803627681}
-  - {fileID: 1278230978}
   - {fileID: 210948045}
+  - {fileID: 1278230978}
   - {fileID: 1781398628}
   m_Father: {fileID: 1660385738}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -252,6 +252,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd49609035226cd49a0de2cbfaefc219, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NameT: {fileID: 1470512642}
+  AgeT: {fileID: 579111254}
+  SpeciesT: {fileID: 1494229604}
+  DescriptionT: {fileID: 1575897085}
+  HistoryT: {fileID: 188771312}
+  StrengthT: {fileID: 1949332197}
+  DexterityT: {fileID: 2076406703}
+  EnduranceT: {fileID: 128617420}
+  WillpowerT: {fileID: 101802955}
+  MindT: {fileID: 2043882033}
+  PhysicalHealthT: {fileID: 1144258652}
+  ImmunityT: {fileID: 1561828877}
+  HydrationT: {fileID: 1948730545}
+  HappinessT: {fileID: 2048780006}
+  EnergyT: {fileID: 1807968017}
+  InebriationT: {fileID: 414594559}
+  ProteinT: {fileID: 155393029}
+  SugarT: {fileID: 1668897972}
+  NutrientsT: {fileID: 551927289}
+  GrainT: {fileID: 252339336}
+  DairyT: {fileID: 1162224975}
 --- !u!1 &101802953
 GameObject:
   m_ObjectHideFlags: 0
@@ -1518,8 +1539,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1470512641}
-  - {fileID: 1494229603}
   - {fileID: 579111253}
+  - {fileID: 1494229603}
   - {fileID: 1575897084}
   - {fileID: 188771311}
   m_Father: {fileID: 22286018}
@@ -2134,9 +2155,9 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1144258651}
-  - {fileID: 2048780005}
   - {fileID: 1561828876}
   - {fileID: 1948730544}
+  - {fileID: 2048780005}
   - {fileID: 1807968016}
   - {fileID: 414594558}
   m_Father: {fileID: 22286018}
