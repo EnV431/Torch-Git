@@ -70,7 +70,7 @@ public class GlobalDictionary : MonoBehaviour
     {
         incidentShell.resourceIncidentData = resourceIncidentData;
         incidentDictionary.Add(incidentShell.resourceIncidentData.incidentName, incidentShell);
-        Debug.Log(" Added " + incidentShell.resourceIncidentData.incidentName + " to dictionary");
+        //Debug.Log(" Added " + incidentShell.resourceIncidentData.incidentName + " to dictionary");
     }
 
     #endregion

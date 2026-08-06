@@ -7,6 +7,8 @@ using UnityEngine;
 
 public class CharacterUI : MonoBehaviour
 {
+    GameObject characterUIObject;
+
     // UI Elements temporary
     [SerializeField] private TextMeshProUGUI NameT;
     [SerializeField] private TextMeshProUGUI AgeT;
@@ -32,14 +34,14 @@ public class CharacterUI : MonoBehaviour
 
     private void Awake()
     {
-        Character character = GlobalDictionary.GlobalDictionaryInstance.GetCharacter("John");
-        DisplayCharacterUI(character);
+        characterUIObject = gameObject;
     }
 
     public void DisplayCharacterUI(Character character)
     {
+        TurnOnCharacterUIObject();
         NameT.text = character.PersonalInfo.name;
-        AgeT.SetText("Age: {0}", character.PersonalInfo.age);
+        AgeT.SetText("{0}", character.PersonalInfo.age);
         SpeciesT.text = character.PersonalInfo.species;
         DescriptionT.text = character.PersonalInfo.description;
         HistoryT.text = character.PersonalInfo.history;
@@ -60,5 +62,16 @@ public class CharacterUI : MonoBehaviour
         GrainT.SetText("Grain: {0}", character.CharacterDietStats.Grain.BaseValue);
         DairyT.SetText("Dairy: {0} ", character.CharacterDietStats.Dairy.BaseValue); 
     }
+
+    private void TurnOnCharacterUIObject()
+    {
+        characterUIObject.SetActive(true);
+    }
+    private void TurnOffCharacterUIObject()
+    {
+        characterUIObject.SetActive(false);
+    }
+
+
 
 }

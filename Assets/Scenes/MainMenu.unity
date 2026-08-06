@@ -728,6 +728,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 50faf56bbc418284a95ec31864e38afc, type: 2}
   incidentDataList:
   - {fileID: 11400000, guid: 0830fc26f346c7f4fb92535e4ba1ab11, type: 2}
+  characterDataList:
+  - {fileID: 11400000, guid: cf2623e4ef0a8b64c94caf3c960d5a36, type: 2}
   traitDataList: []
 --- !u!4 &1183543905
 Transform:
