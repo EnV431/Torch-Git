@@ -728,8 +728,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 50faf56bbc418284a95ec31864e38afc, type: 2}
   incidentDataList:
   - {fileID: 11400000, guid: 0830fc26f346c7f4fb92535e4ba1ab11, type: 2}
+  - {fileID: 11400000, guid: 6408f2036f8ac9748b3783651f47305f, type: 2}
+  - {fileID: 11400000, guid: 1d8a4fa2e0a2f8c47bf24cde2f3f910f, type: 2}
   characterDataList:
   - {fileID: 11400000, guid: cf2623e4ef0a8b64c94caf3c960d5a36, type: 2}
+  pointOfInterestDataList:
+  - {fileID: 11400000, guid: 61e0dc4d4fbb8dc4988beee21cfa8fb0, type: 2}
   traitDataList: []
 --- !u!4 &1183543905
 Transform:

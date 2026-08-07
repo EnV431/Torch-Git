@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f172b6f59e7985e42815829c11ba528f, type: 3}
   m_Name: MoldOutbreak
   m_EditorClassIdentifier: 
+  isNegative: 1
   incidentName: Mold Outbreak
   chanceToHappen: 30
   incidentDescription: There was a Mold Outbreak and you lost some supplies

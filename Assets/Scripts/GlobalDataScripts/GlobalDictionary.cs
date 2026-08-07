@@ -9,6 +9,7 @@ public class GlobalDictionary : MonoBehaviour
     private Dictionary<string, Incident> incidentDictionary = new();
     private Dictionary<string, Character> characterDictionary = new();
 
+    private Dictionary<string, PointOfInterest> pointOfInterestDictionary = new();
     private Dictionary<string, TraitData> traitDictionary = new();
 
     private void Start() //on start so it happenes after the database
@@ -44,9 +45,10 @@ public class GlobalDictionary : MonoBehaviour
             //Debug.Log(incidentData.incidentName);
             if (incidentData is ResourceIncidentData resourceIncidentData) //just do this but for other incident types as well
             {
+                ResourceIncidentData newResourceIncidentData = incidentData as ResourceIncidentData;
                 ResourceIncident incidentShell = new();
-                AddResourceIncident(incidentShell, resourceIncidentData);
-                //Debug.Log(" Added " + incidentShell.resourceIncidentData.incidentName + " to dictionary");
+                AddResourceIncident(incidentShell, newResourceIncidentData);
+                //Debug.Log(" Added " + incidentShell.IncidentData.incidentName + " to dictionary");
             }            
         }
         foreach (CharacterData characterData in GameDatabase.GameDatabaseInstance.CharacterDataList)
@@ -57,23 +59,18 @@ public class GlobalDictionary : MonoBehaviour
             characterDictionary.Add(characterShell.PersonalInfo.name, characterShell);
             Debug.Log(" Added " + characterShell.PersonalInfo.name + " to dictionary");
         }
-
-
         foreach (TraitData traitData in GameDatabase.GameDatabaseInstance.TraitDataList)
         {            
             traitDictionary.Add(traitData.traitInfo.traitName, traitData);
         }
-    }
-    #region AddToDictionaryLogicForDifferentIncidentTypes
-
-    private void AddResourceIncident(ResourceIncident incidentShell, ResourceIncidentData resourceIncidentData) //just do this but for other incident types as well
-    {
-        incidentShell.resourceIncidentData = resourceIncidentData;
-        incidentDictionary.Add(incidentShell.resourceIncidentData.incidentName, incidentShell);
-        //Debug.Log(" Added " + incidentShell.resourceIncidentData.incidentName + " to dictionary");
+        foreach (PointOfInterestData poiData in GameDatabase.GameDatabaseInstance.PointOfInterestDataList)
+        {
+            PointOfInterest pointOfInterest = new();
+            pointOfInterest.pointOfInterestData = poiData;
+            pointOfInterestDictionary.Add(pointOfInterest.pointOfInterestData.name, pointOfInterest);
+        }
     }
 
-    #endregion
 
 
     #region ResourceFuncs
@@ -115,6 +112,17 @@ public class GlobalDictionary : MonoBehaviour
         else Debug.LogError(" Incident not found in Dictionary"); return null;
     }
 
+    #region AddToDictionaryLogicForDifferentIncidentTypes
+
+    private void AddResourceIncident(ResourceIncident incidentShell, ResourceIncidentData resourceIncidentData) //just do this but for other incident types as well
+    {        
+        incidentShell.IncidentData = resourceIncidentData;
+        incidentDictionary.Add(incidentShell.IncidentData.incidentName, incidentShell);
+        //Debug.Log(" Added " + incidentShell.IncidentData.incidentName + " to dictionary");
+    }
+
+    #endregion
+
     public void TriggerIncident(string incidentName)
     {
         Incident incident = GetIncident(incidentName);
@@ -143,7 +151,16 @@ public class GlobalDictionary : MonoBehaviour
     }
 
     #endregion
-
+    #region POI Funcs
+    public PointOfInterest GetPointOfInterest(string pointOfInterestName) // public lookup method
+    {
+        if (pointOfInterestDictionary.TryGetValue(pointOfInterestName, out var pointOfInterest))
+        {
+            return pointOfInterest;
+        }
+        else Debug.LogError(" Point of Interest not found in Dictionary"); return null;
+    }
+    #endregion
 
     #region TraitFuncs
     public TraitData GetTrait(string traitName) // public lookup method

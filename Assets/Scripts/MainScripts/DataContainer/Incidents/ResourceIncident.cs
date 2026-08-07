@@ -4,11 +4,15 @@ public class ResourceIncident : Incident
 {
     protected override void ExecuteIncident()
     {
-        Debug.Log("Executing Resource Incident: " + resourceIncidentData.incidentName);
-        foreach (var item in resourceIncidentData.resourceChangesArray)
+        Debug.Log("Executing Resource Incident: " + IncidentData.incidentName);
+        if (IncidentData is ResourceIncidentData)
         {
-            GlobalDictionary.GlobalDictionaryInstance.ChangeResource(item.resourceType, item.amountToChange);
-            GlobalUIManager.GlobalUIManagerInstance.UpdateSpecificResourceUI(item.resourceType);
+            ResourceIncidentData resourceIncidentData = IncidentData as ResourceIncidentData;
+            foreach (var item in resourceIncidentData.resourceChangesArray)
+            {
+                GlobalDictionary.GlobalDictionaryInstance.ChangeResource(item.resourceType, item.amountToChange);
+                GlobalUIManager.GlobalUIManagerInstance.UpdateSpecificResourceUI(item.resourceType);
+            }
         }
     }
 }

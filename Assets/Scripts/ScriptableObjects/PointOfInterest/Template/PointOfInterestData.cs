@@ -12,7 +12,7 @@ public class PointOfInterestData : ScriptableObject
         Dangerous
     }
 
-    public POIDangerLevel level;
+    public POIDangerLevel poiDangerlevel;
     public string pointOfInterestDescription;
     public IncidentData[] possibleIncidents;
 }
