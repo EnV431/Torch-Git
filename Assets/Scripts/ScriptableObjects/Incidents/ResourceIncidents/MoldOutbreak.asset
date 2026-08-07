@@ -12,11 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f172b6f59e7985e42815829c11ba528f, type: 3}
   m_Name: MoldOutbreak
   m_EditorClassIdentifier: 
-  isNegative: 1
-  incidentName: Mold Outbreak
-  chanceToHappen: 30
-  incidentDescription: There was a Mold Outbreak and you lost some supplies
-  incidentTypeId: 1
+  IncidentDetails:
+    isNegative: 1
+    incidentName: Mold Outbreak
+    chanceToHappen: 15
+    incidentDescription: There is a mold outbreak in your food supply
+    incidentTypeId: 1
+  AttackerDetails:
+    isAttacker: 0
+    attackPower: 0
+    attackerEvilLevel: 0
   resourceChangesArray:
   - resourceType: 0
     amountToChange: -10

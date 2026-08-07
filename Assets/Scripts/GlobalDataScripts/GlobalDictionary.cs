@@ -117,7 +117,7 @@ public class GlobalDictionary : MonoBehaviour
     private void AddResourceIncident(ResourceIncident incidentShell, ResourceIncidentData resourceIncidentData) //just do this but for other incident types as well
     {        
         incidentShell.IncidentData = resourceIncidentData;
-        incidentDictionary.Add(incidentShell.IncidentData.incidentName, incidentShell);
+        incidentDictionary.Add(incidentShell.IncidentData.IncidentDetails.incidentName, incidentShell);
         //Debug.Log(" Added " + incidentShell.IncidentData.incidentName + " to dictionary");
     }
 

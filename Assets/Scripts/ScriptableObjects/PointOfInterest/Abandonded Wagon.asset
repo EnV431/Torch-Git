@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05d7106714ac28e40ab09544d8e61af1, type: 3}
   m_Name: Abandonded Wagon
   m_EditorClassIdentifier: 
-  level: 1
+  poiDangerlevel: 1
   pointOfInterestDescription: You come across an abandonded wagon
   possibleIncidents:
   - {fileID: 11400000, guid: 6408f2036f8ac9748b3783651f47305f, type: 2}

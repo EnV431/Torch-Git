@@ -1,5 +1,6 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 using static UnityEditor.Progress;
 
 public class PointOfInterest
@@ -7,6 +8,9 @@ public class PointOfInterest
     public bool isCompleted = false;
     public PointOfInterestData pointOfInterestData;
 
+    private bool doesTrigger;
+    private int baseTriggerChance;
+    
     public void RunPointOfInterestLogic()
     {
         if (isCompleted != false) return;
@@ -24,55 +28,85 @@ public class PointOfInterest
     {
         foreach (IncidentData item in pointOfInterestData.possibleIncidents)
         {
-            AttemptToGetIncident(item.incidentName, out Incident incident);
-            int chanceToTrigger = CaculateChanceToHappen(item.chanceToHappen, incident.IncidentData);
-            CheckIfIncidentTriggers(chanceToTrigger);
+            GetIncidentDetails(in item.IncidentDetails, in item.AttackerDetails); //optimize by passing a readonly ref of the struct so that the struct isnt copied
         }
     }
 
-    private void AttemptToGetIncident(string incidentName, out Incident incident)
+    private void GetIncidentDetails(in IncidentDetails incidentDetails, in AttackerDetails attackerDetails)
+    {
+        baseTriggerChance = incidentDetails.chanceToHappen;
+        LookForIncident(incidentDetails.incidentName, out Incident incident);        
+        int chanceToTrigger = FilterChanceStructLogics(in incidentDetails);
+        if (CheckIfIncidentTriggers(chanceToTrigger))
+        {
+            TriggerIncident(incident);
+        }
+        
+    }
+
+    private void LookForIncident(string incidentName, out Incident incident)
     {
         incident = GlobalDictionary.GlobalDictionaryInstance.GetIncident(incidentName);
     }
 
-    private int CaculateChanceToHappen(int baseChance, IncidentData incidentData)
+    private int FilterChanceStructLogics(in IncidentDetails incidentDetails)
     {
-        if (incidentData is ResourceIncidentData)
+        if (incidentDetails.isNegative) baseTriggerChance += CaculateDangerModifier(incidentDetails);
+
+        baseTriggerChance = Mathf.Clamp(baseTriggerChance, 0, 100);
+        return baseTriggerChance;
+    }
+    private int CaculateDangerModifier(in IncidentDetails incidentDetails)
+    {
+        int triggerChance = 0;
+        if (incidentDetails.isNegative)
         {
-            ResourceIncidentData rIncidentDat = incidentData as ResourceIncidentData;
-            Debug.Log(rIncidentDat.resourceChangesArray.Length);
-            foreach (var item in rIncidentDat.resourceChangesArray)
+            switch (pointOfInterestData.poiDangerlevel)
             {
-                Debug.Log(item.resourceType + "IT works");
+                case PointOfInterestData.POIDangerLevel.Safe:
+                    return 0;
+                case PointOfInterestData.POIDangerLevel.Low:
+                    triggerChance -= 10;
+                    break;
+                case PointOfInterestData.POIDangerLevel.Medium:
+                    // Doesnt Change
+                    break;
+                case PointOfInterestData.POIDangerLevel.High:
+                    triggerChance += 5;
+                    break;
+                case PointOfInterestData.POIDangerLevel.Dangerous:
+                    triggerChance += 15;
+                    break;
             }
         }
-        if (incidentData.isNegative)
-        {
-            
-        }
-        switch (pointOfInterestData.poiDangerlevel)
-        {
-            case PointOfInterestData.POIDangerLevel.Safe:
+        return triggerChance;
 
-                break;
-            case PointOfInterestData.POIDangerLevel.Low:
-                // Handle low danger POI logic
-                break;
-            case PointOfInterestData.POIDangerLevel.Medium:
-                // Handle medium danger POI logic
-                break;
-            case PointOfInterestData.POIDangerLevel.High:
-                // Handle high danger POI logic
-                break;
-            case PointOfInterestData.POIDangerLevel.Dangerous:
-                // Handle dangerous POI logic
-                break;
-
-        }       return 0;
     }
-    private void CheckIfIncidentTriggers(int chanceToHappen)
+
+    private bool CheckIfIncidentTriggers(int chanceToTrigger)
     {
-
-        
+        if (chanceToTrigger > Random.Range(0, 100))
+        {
+            return true;
+        }
+        return false;
     }
+
+    private void TriggerIncident(Incident incident)
+    {
+        incident.TriggerIncidentExecution();
+    }
+
+    private void RunAttackedLogic(in AttackerDetails attackerDetails)
+    {
+        if (attackerDetails.attackPower < GlobalDictionary.GlobalDictionaryInstance.GetResource(ResourceData.ResourceType.Security).Amount)
+        {
+            // need to have a party thingy setup to give damage 
+        }
+
+
+        //int percentOfDamageToGuard = 0; // damage will be spread out across characters but mostly focused on the guard the more evil the enemy the more damage to civilians
+
+
+    } //will run after the incident has been triggered
 }

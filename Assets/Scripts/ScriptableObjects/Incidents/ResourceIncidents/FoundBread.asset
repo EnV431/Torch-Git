@@ -12,10 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f172b6f59e7985e42815829c11ba528f, type: 3}
   m_Name: FoundBread
   m_EditorClassIdentifier: 
-  incidentName: Found Bread
-  chanceToHappen: 80
-  incidentDescription: You Found Bread
-  incidentTypeId: 1
+  IncidentDetails:
+    isNegative: 0
+    incidentName: Found Bread
+    chanceToHappen: 80
+    incidentDescription: You found some spare bread
+    incidentTypeId: 1
+  AttackerDetails:
+    isAttacker: 0
+    attackPower: 0
+    attackerEvilLevel: 0
   resourceChangesArray:
   - resourceType: 0
     amountToChange: 20

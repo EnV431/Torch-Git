@@ -4,7 +4,7 @@ public class ResourceIncident : Incident
 {
     protected override void ExecuteIncident()
     {
-        Debug.Log("Executing Resource Incident: " + IncidentData.incidentName);
+        Debug.Log("Executing Resource Incident: " + IncidentData.IncidentDetails.incidentName);
         if (IncidentData is ResourceIncidentData)
         {
             ResourceIncidentData resourceIncidentData = IncidentData as ResourceIncidentData;
