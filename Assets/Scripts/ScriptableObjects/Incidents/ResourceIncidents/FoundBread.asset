@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f172b6f59e7985e42815829c11ba528f, type: 3}
-  m_Name: MoldOutbreak
+  m_Name: FoundBread
   m_EditorClassIdentifier: 
-  incidentName: Mold Outbreak
-  chanceToHappen: 30
-  incidentDescription: There was a Mold Outbreak and you lost some supplies
+  incidentName: Found Bread
+  chanceToHappen: 80
+  incidentDescription: You Found Bread
   incidentTypeId: 1
   resourceChangesArray:
   - resourceType: 0
-    amountToChange: -10
+    amountToChange: 20

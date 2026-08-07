@@ -4,5 +4,7 @@ using UnityEngine;
 public class IncidentData : ScriptableObject
 {
     public string incidentName;
-    public int incidentTypeId;
+    [Tooltip("The probability of this incident when called by a POI occurring (0-100)")]public int chanceToHappen;
+    public string incidentDescription;
+    [Tooltip("Used to determine the type of incident: 1 = Resource, 2 = Character, 3 = Item")]public int incidentTypeId;
 }
