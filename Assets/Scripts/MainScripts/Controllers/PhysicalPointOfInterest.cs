@@ -7,6 +7,36 @@ public class PhysicalPointOfInterest : MonoBehaviour
     private PointOfInterest pointOfInterest;
     private Image mainImage;
     private TextMeshProUGUI dangerLevelText;
+    [SerializeField] private int stageInLevel; //temporary system (stage in level manual setup)
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Party"))
+        {
+            Debug.Log("Running point of interest logic");
+            pointOfInterest.RunPointOfInterestLogic();
+        }
+    }
+    private void OnMouseDown()
+    {
+        if (PartyController.currentStageInlevel > stageInLevel)
+        {
+            return;
+        }
+        if (PartyController.canPartyMove == true)
+        {
+            //Debug.Log("Trying To move party from POI");
+            PartyController.movePartyTo(gameObject);
+        }        
+    }
+
+    private void OnMouseEnter()
+    {
+        EnablePopupUI();
+    }
+    private void OnMouseExit()
+    {
+        DisablePopupUI();
+    }
 
     private void Start()
     {
@@ -17,7 +47,7 @@ public class PhysicalPointOfInterest : MonoBehaviour
             return;
         }
         LoadUIElements();
-        pointOfInterest.RunPointOfInterestLogic();
+        //Debug.Log(pointOfInterest.pointOfInterestData.name);
     }
 
     private void GetPointOfInterest()
@@ -30,18 +60,17 @@ public class PhysicalPointOfInterest : MonoBehaviour
         mainImage = GetComponentInChildren<Image>();
 
         dangerLevelText = GetComponentInChildren<TextMeshProUGUI>();
-        dangerLevelText.text = pointOfInterest.pointOfInterestData.poiDangerlevel.ToString();
+        dangerLevelText.text = pointOfInterest.pointOfInterestData.poiDangerlevel.ToString() + " Danger";
+        dangerLevelText.gameObject.SetActive(false);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void EnablePopupUI()
     {
-        if (collision.CompareTag("Party"))
-        {
-            pointOfInterest.RunPointOfInterestLogic();
-        }
+        dangerLevelText.gameObject.SetActive(true);
     }
-    private void OnTriggerExit2D(Collider2D collision)
+    private void DisablePopupUI()
     {
-        pointOfInterest.isCompleted = true;
+        dangerLevelText.gameObject.SetActive(false);
     }
+
 }

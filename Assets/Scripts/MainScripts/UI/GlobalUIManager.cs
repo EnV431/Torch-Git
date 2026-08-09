@@ -7,8 +7,8 @@ public class GlobalUIManager : MonoBehaviour
 
     public Action UpdateAllUI;
     public Action UpdateResourceUI;
-    public Action<PointOfInterestData> UpdatePointOfInterestUI;
     public Action<ResourceData.ResourceType> UpdateSpecificResourceUI;
+    public Action ShowIncidentUI; 
 
     void Awake()
     {

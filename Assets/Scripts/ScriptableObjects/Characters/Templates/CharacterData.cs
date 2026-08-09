@@ -1,5 +1,6 @@
 using NUnit.Framework;
 using UnityEngine;
+using UnityEngine.UI;
 [System.Serializable]
 public struct PersonalInfo
 {
@@ -8,6 +9,12 @@ public struct PersonalInfo
     public string species;
     public string description;
     public string history;
+}
+[System.Serializable]
+public struct CharacterVanity
+{
+    public Sprite sprite;
+    public Animation animation;
 }
 
 [System.Serializable]
@@ -84,6 +91,7 @@ public struct CharacterDietStats
 public class CharacterData : ScriptableObject
 {
     public PersonalInfo personalInfo;
+    public CharacterVanity characterVanity;
     public CharacterTraitContainer[] characterTraitsArray;
     public CharacterProficiencyContainer[] characterProficienciesArray;
     public CharacterAttributes characterAttributes;

@@ -6,42 +6,18 @@ using static UnityEditor.Progress;
 
 public class PointOfInterest
 {
-    public bool isCompleted = false;
     public PointOfInterestData pointOfInterestData;
     
-    public List<string> partyNameList; // temp fix for being able to change party members stuff
-    private List<Character> partyList;
     private int baseTriggerChance;
     
     public void RunPointOfInterestLogic()
-    {
-        if (isCompleted != false) return;
-        LoadPartyMembersToList(); //doesnt do anything at the moment
-        UpdatePointOfInterestUI();
+    {        
         AttemptToTriggerIncidents();
-    }
-
-    private void LoadPartyMembersToList()
-    {
-        if (partyList == null || partyNameList == null)
-        {
-            Debug.Log("party list or party name list is null");
-            return;
-        }
-        partyList.Clear();
-        foreach (string name in partyNameList)
-        {
-            partyList.Add(GlobalDictionary.GlobalDictionaryInstance.GetCharacter(name));
-        }
-    }
-
-    private void UpdatePointOfInterestUI()
-    {
-        GlobalUIManager.GlobalUIManagerInstance.UpdatePointOfInterestUI?.Invoke(pointOfInterestData);
     }
 
     private void AttemptToTriggerIncidents()
     {
+        if (pointOfInterestData == null || pointOfInterestData.possibleIncidents == null) { return; }
         foreach (IncidentData item in pointOfInterestData.possibleIncidents)
         {
             GetIncidentDetails(in item.IncidentDetails, in item.AttackerDetails); //optimize by passing a readonly ref of the struct so that the struct isnt copied
@@ -53,7 +29,7 @@ public class PointOfInterest
         baseTriggerChance = incidentDetails.chanceToHappen;
         LookForIncident(incidentDetails.incidentName, out Incident incident);        
         int chanceToTrigger = FilterChanceStructLogics(in incidentDetails);
-        if (CheckIfIncidentTriggers(chanceToTrigger))
+        if (CheckIfIncidentTriggers(chanceToTrigger, incident))
         {
             TriggerIncident(incident);
         }
@@ -99,12 +75,14 @@ public class PointOfInterest
 
     }
 
-    private bool CheckIfIncidentTriggers(int chanceToTrigger)
+    private bool CheckIfIncidentTriggers(int chanceToTrigger, Incident incident)
     {
         if (chanceToTrigger > Random.Range(0, 100))
         {
+            Debug.Log("Triggering " + incident.IncidentData.name);
             return true;
         }
+        Debug.Log("Failed to Trigger " + incident.IncidentData.name);
         return false;
     }
 
