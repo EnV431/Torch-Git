@@ -18,7 +18,7 @@ public class PhysicalPointOfInterest : MonoBehaviour
     }
     private void OnMouseDown()
     {
-        if (PartyController.currentStageInlevel > stageInLevel)
+        if (PartyController.currentStageInlevel > stageInLevel || PartyController.currentStageInlevel < stageInLevel)
         {
             return;
         }

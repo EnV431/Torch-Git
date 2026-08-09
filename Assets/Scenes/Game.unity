@@ -1127,6 +1127,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: IncidentUIEmpty
       objectReference: {fileID: 0}
+    - target: {fileID: 1520092181117298636, guid: a03f2548a64f3164fa9cf6137d345332, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7424451612622614564, guid: a03f2548a64f3164fa9cf6137d345332, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1611,7 +1615,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6804299556075577040, guid: effb4cd2c5c90d742b2b0f841930d79d, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -223.43399
+      value: -223.43402
       objectReference: {fileID: 0}
     - target: {fileID: 6867265454946449849, guid: effb4cd2c5c90d742b2b0f841930d79d, type: 3}
       propertyPath: m_AnchorMax.y
