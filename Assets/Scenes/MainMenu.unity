@@ -718,23 +718,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4808edf815484af4d9937707f3e896d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resourceDataList:
+  resourceDataArray:
   - {fileID: 11400000, guid: 46c7da0611b338c419f8eda159042017, type: 2}
   - {fileID: 11400000, guid: e8a0937540e08e14c8ccba1dd24c043e, type: 2}
-  - {fileID: 11400000, guid: 563143b5d60fa6e44ab5d32ae4b1592d, type: 2}
   - {fileID: 11400000, guid: 5e02e20b749615341b0b41e5f13a3337, type: 2}
+  - {fileID: 11400000, guid: 563143b5d60fa6e44ab5d32ae4b1592d, type: 2}
   - {fileID: 11400000, guid: f0e0e76c30bf4d742b46b7cd36308283, type: 2}
   - {fileID: 11400000, guid: b0da5ff56c0db2a4eaecf202aa66798b, type: 2}
   - {fileID: 11400000, guid: 50faf56bbc418284a95ec31864e38afc, type: 2}
-  incidentDataList:
-  - {fileID: 11400000, guid: 0830fc26f346c7f4fb92535e4ba1ab11, type: 2}
+  incidentDataArray:
   - {fileID: 11400000, guid: 6408f2036f8ac9748b3783651f47305f, type: 2}
   - {fileID: 11400000, guid: 1d8a4fa2e0a2f8c47bf24cde2f3f910f, type: 2}
-  characterDataList:
+  - {fileID: 11400000, guid: 0830fc26f346c7f4fb92535e4ba1ab11, type: 2}
+  characterDataArray:
   - {fileID: 11400000, guid: cf2623e4ef0a8b64c94caf3c960d5a36, type: 2}
-  pointOfInterestDataList:
+  pointOfInterestDataArray:
   - {fileID: 11400000, guid: 61e0dc4d4fbb8dc4988beee21cfa8fb0, type: 2}
-  traitDataList: []
+  traitDataArray:
+  - {fileID: 11400000, guid: 9b8b75e874303144aaa6498ee76fe00c, type: 2}
 --- !u!4 &1183543905
 Transform:
   m_ObjectHideFlags: 0

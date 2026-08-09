@@ -1,17 +1,36 @@
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PhysicalPointOfInterest : MonoBehaviour
 {
     private PointOfInterest pointOfInterest;
+    private Image mainImage;
+    private TextMeshProUGUI dangerLevelText;
 
     private void Start()
     {
-        if (pointOfInterest.pointOfInterestData == null)
+        GetPointOfInterest();
+        if (pointOfInterest == null|| pointOfInterest.pointOfInterestData == null)
         {
-            Debug.LogError("PointOfInterestData is not assigned.");
+            Debug.LogError("PointOfInterest or its data is not assigned.");
             return;
         }
+        LoadUIElements();
         pointOfInterest.RunPointOfInterestLogic();
+    }
+
+    private void GetPointOfInterest()
+    {
+        PointOfInterestData poiData = GameDatabase.GameDatabaseInstance.PointOfInterestDataList[Random.Range(0, GameDatabase.GameDatabaseInstance.PointOfInterestDataList.Count)];
+        pointOfInterest = GlobalDictionary.GlobalDictionaryInstance.GetPointOfInterest(poiData.name);
+    }
+    private void LoadUIElements()
+    {
+        mainImage = GetComponentInChildren<Image>();
+
+        dangerLevelText = GetComponentInChildren<TextMeshProUGUI>();
+        dangerLevelText.text = pointOfInterest.pointOfInterestData.poiDangerlevel.ToString();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

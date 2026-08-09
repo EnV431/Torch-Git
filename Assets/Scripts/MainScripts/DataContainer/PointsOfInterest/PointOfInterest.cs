@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -7,18 +8,33 @@ public class PointOfInterest
 {
     public bool isCompleted = false;
     public PointOfInterestData pointOfInterestData;
-
-    private bool doesTrigger;
+    
+    public List<string> partyNameList; // temp fix for being able to change party members stuff
+    private List<Character> partyList;
     private int baseTriggerChance;
     
     public void RunPointOfInterestLogic()
     {
         if (isCompleted != false) return;
-
+        LoadPartyMembersToList(); //doesnt do anything at the moment
         UpdatePointOfInterestUI();
         AttemptToTriggerIncidents();
-
     }
+
+    private void LoadPartyMembersToList()
+    {
+        if (partyList == null || partyNameList == null)
+        {
+            Debug.Log("party list or party name list is null");
+            return;
+        }
+        partyList.Clear();
+        foreach (string name in partyNameList)
+        {
+            partyList.Add(GlobalDictionary.GlobalDictionaryInstance.GetCharacter(name));
+        }
+    }
+
     private void UpdatePointOfInterestUI()
     {
         GlobalUIManager.GlobalUIManagerInstance.UpdatePointOfInterestUI?.Invoke(pointOfInterestData);
