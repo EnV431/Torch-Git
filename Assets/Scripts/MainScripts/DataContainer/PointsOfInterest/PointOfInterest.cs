@@ -89,6 +89,7 @@ public class PointOfInterest
     private void TriggerIncident(Incident incident)
     {
         incident.TriggerIncidentExecution();
+        GameUIManager.GameUIManagerInstance.InvokeShowIncidentUI(incident.IncidentData);
     }
 
     private void RunAttackedLogic(in AttackerDetails attackerDetails)

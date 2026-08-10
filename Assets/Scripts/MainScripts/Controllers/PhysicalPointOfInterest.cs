@@ -13,9 +13,10 @@ public class PhysicalPointOfInterest : MonoBehaviour
         if (collision.CompareTag("Party"))
         {
             Debug.Log("Running point of interest logic");
-            pointOfInterest.RunPointOfInterestLogic();
+            pointOfInterest.RunPointOfInterestLogic(); 
         }
     }
+    
     private void OnMouseDown()
     {
         if (PartyController.currentStageInlevel > stageInLevel || PartyController.currentStageInlevel < stageInLevel)
@@ -26,7 +27,8 @@ public class PhysicalPointOfInterest : MonoBehaviour
         {
             //Debug.Log("Trying To move party from POI");
             PartyController.movePartyTo(gameObject);
-        }        
+        }       
+        
     }
 
     private void OnMouseEnter()

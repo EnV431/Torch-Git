@@ -11,7 +11,7 @@ public class ResourceIncident : Incident
             foreach (var item in resourceIncidentData.resourceChangesArray)
             {
                 GlobalDictionary.GlobalDictionaryInstance.ChangeResource(item.resourceType, item.amountToChange);
-                GlobalUIManager.GlobalUIManagerInstance.UpdateSpecificResourceUI(item.resourceType);
+                GameUIManager.GameUIManagerInstance.UpdateSpecificResourceUI(item.resourceType);
             }
         }
     }
