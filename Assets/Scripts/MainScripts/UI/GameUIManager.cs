@@ -26,7 +26,12 @@ public class GameUIManager : MonoBehaviour
 
     public void InvokeShowIncidentUI(IncidentData incidentData)
     {
-        ShowIncidentUI.Invoke(incidentData);    
+        if (ShowIncidentUI == null)
+        {
+            Debug.Log("ShowIncidentUI is null");
+        }
+        ShowIncidentUI?.Invoke(incidentData);
+
     }
 
 

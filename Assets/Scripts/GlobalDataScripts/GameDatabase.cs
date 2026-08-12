@@ -34,5 +34,4 @@ public class GameDatabase : MonoBehaviour
         #endregion
     }
 
-
 }
