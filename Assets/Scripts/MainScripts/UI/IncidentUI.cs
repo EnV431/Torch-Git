@@ -32,7 +32,7 @@ public class IncidentUI : MonoBehaviour
     }
     public void DisableIncidentUI()
     {
-        incidentContainer.SetActive(false);
+        incidentContainer.SetActive(false);        
     }
 
     private string GetResultInfoFromDataType(IncidentData ogIncidentData)

@@ -7,9 +7,10 @@ public class GameUIManager : MonoBehaviour
 {
     public static GameUIManager GameUIManagerInstance { get; set; }
 
+    public GameObject IncidentUIGameObject; //DEMO
     public Dictionary<string, Sprite> spriteDict = new();
-    [SerializeField]private Sprite[] poiSprites;
 
+    [SerializeField]private Sprite[] poiSprites;
 
     public Action UpdateAllUI;
     public Action UpdateResourceUI;

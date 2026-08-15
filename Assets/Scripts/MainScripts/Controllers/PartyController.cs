@@ -13,10 +13,7 @@ public class PartyController : MonoBehaviour //party moving funcs can be moved i
     public static bool canPartyMove = true;
     public static int currentStageInlevel = 1;
 
-    [SerializeField] private int skbiidlagagg; 
-
     private bool isPartyMoving = false;
-    private bool isAtPOI = false;
 
     [SerializeField]private GameObject partyMemberPrefab;
 
@@ -26,6 +23,7 @@ public class PartyController : MonoBehaviour //party moving funcs can be moved i
     public IReadOnlyList<Character> CurrentPartyList => currentPartyList;
 
     public float partyMoveSpeed;
+
 
 
     private void Awake()
@@ -41,10 +39,6 @@ public class PartyController : MonoBehaviour //party moving funcs can be moved i
         ResetLevelPartyLogic();
     }
 
-    private void Update()
-    {
-        skbiidlagagg = currentStageInlevel;
-    }
     private void OnEnable()
     {
         movePartyTo += StartPartyMovingCoroutine;
@@ -53,6 +47,7 @@ public class PartyController : MonoBehaviour //party moving funcs can be moved i
     {
         movePartyTo -= StartPartyMovingCoroutine;
     }
+
     private void InstantiatePartyMembers()
     {
         foreach (Character character in currentPartyList)
@@ -75,6 +70,10 @@ public class PartyController : MonoBehaviour //party moving funcs can be moved i
     }
     private void StartPartyMovingCoroutine(GameObject targetDestination)
     {
+        if (GameUIManager.GameUIManagerInstance.IncidentUIGameObject.activeInHierarchy)
+        {
+            return;
+        }
         isPartyMoving = true;
         canPartyMove = false;
         //Debug.Log("starting partymove" + isPartyMoving + " " + canPartyMove);

@@ -15,5 +15,4 @@ MonoBehaviour:
   poiDangerlevel: 1
   pointOfInterestDescription: You come across an abandonded wagon
   possibleIncidents:
-  - {fileID: 11400000, guid: 6408f2036f8ac9748b3783651f47305f, type: 2}
   - {fileID: 11400000, guid: 1d8a4fa2e0a2f8c47bf24cde2f3f910f, type: 2}

@@ -9,7 +9,11 @@ public class PointOfInterest
     public PointOfInterestData pointOfInterestData;
     
     private int baseTriggerChance;
-    
+
+    #region DEMO
+    private bool canChange = true;
+    #endregion
+
     public void RunPointOfInterestLogic()
     {        
         AttemptToTriggerIncidents();
@@ -88,6 +92,7 @@ public class PointOfInterest
 
     private void TriggerIncident(Incident incident)
     {
+        if (canChange == false) return; //DEMO
         incident.TriggerIncidentExecution();
         GameUIManager.GameUIManagerInstance.InvokeShowIncidentUI(incident.IncidentData);
     }
@@ -104,4 +109,10 @@ public class PointOfInterest
 
 
     } //will run after the incident has been triggered
+
+    private void StopTriggering() //DEMO
+    {
+        canChange = false;
+    }
+
 }
