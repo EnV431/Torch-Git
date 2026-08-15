@@ -77,7 +77,7 @@ public class PartyController : MonoBehaviour //party moving funcs can be moved i
     {
         isPartyMoving = true;
         canPartyMove = false;
-        Debug.Log("startting paryymove" + isPartyMoving + " " + canPartyMove);
+        //Debug.Log("starting partymove" + isPartyMoving + " " + canPartyMove);
         StartCoroutine(MovePartyToPointOfInterest(targetDestination));        
     }
 
@@ -85,9 +85,7 @@ public class PartyController : MonoBehaviour //party moving funcs can be moved i
     {
         while (isPartyMoving == true)
         {
-            Debug.Log("moving paryy" + isPartyMoving + " " + canPartyMove);
-            //Debug.Log("Coroutine is trying to move party");
-            //Debug.Log(gameObject.transform.position);
+           // Debug.Log("moving party" + isPartyMoving + " " + canPartyMove);
             transform.position = Vector2.MoveTowards(gameObject.transform.position, targetDestination.transform.position, partyMoveSpeed);
             CheckIfPartyAtTarget(targetDestination);
             yield return null;
@@ -100,13 +98,12 @@ public class PartyController : MonoBehaviour //party moving funcs can be moved i
         if (distance <= 0.1f) 
         {
             RunPartyArrivedAtDestinationLogic(targetDestination);
-            Debug.Log("party arruved at destination");
+            
         }
     }
 
     private void RunPartyArrivedAtDestinationLogic(GameObject targetDestination)
     {
-        Debug.Log("arrived at destiination" + isPartyMoving + " " + canPartyMove);
         EndPartyMovingCoroutine(targetDestination);
         currentStageInlevel++;
         //Debug.Log("PartyArrived At Destination");

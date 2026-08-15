@@ -57,7 +57,11 @@ public class POIPlacer : MonoBehaviour, IGameModule
     }
 
     private void SetPoiLayout()
-    { 
+    {
+        if (_poiLayout == null)
+        {
+            Destroy(_poiLayout);
+        }
         _poiLayout = Instantiate(_poiLayoutArray[Random.Range(0, _poiLayoutArray.Length)], _poiLayout.transform);        
     }
 

@@ -23,8 +23,8 @@ public class IGameStartSetupModule : MonoBehaviour, IGameModule
     }
 
     public void UpdateModule()
-    { 
-        throw new NotImplementedException();
+    {
+        return;
     }
     private void SetResourceValuesToChosenDifficulty()
     {
