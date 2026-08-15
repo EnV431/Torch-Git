@@ -22,6 +22,10 @@ public class IGameStartSetupModule : MonoBehaviour, IGameModule
         OnResetGame?.Invoke();
     }
 
+    public void UpdateModule()
+    { 
+        throw new NotImplementedException();
+    }
     private void SetResourceValuesToChosenDifficulty()
     {
         if (GlobalDictionary.GlobalDictionaryInstance == null) Debug.Log("global dict is null"); 
