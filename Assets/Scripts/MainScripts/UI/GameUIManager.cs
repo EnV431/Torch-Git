@@ -1,10 +1,15 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class GameUIManager : MonoBehaviour
 {
     public static GameUIManager GameUIManagerInstance { get; set; }
+
+    public Dictionary<string, Sprite> spriteDict = new();
+    [SerializeField]private Sprite[] poiSprites;
+
 
     public Action UpdateAllUI;
     public Action UpdateResourceUI;
@@ -22,6 +27,16 @@ public class GameUIManager : MonoBehaviour
         }
         GameUIManagerInstance = this;
         #endregion
+
+        #region LoadSpritesToSpriteDict
+
+        foreach (Sprite item in poiSprites)
+        {
+            spriteDict.Add(item.name, item); 
+        }
+
+        #endregion
+
     }
 
     public void InvokeShowIncidentUI(IncidentData incidentData)
@@ -34,7 +49,16 @@ public class GameUIManager : MonoBehaviour
 
     }
 
-
+    public Sprite GetSprite(string key)
+    {
+        if (spriteDict.ContainsKey(key + "_0"))
+        {
+            spriteDict.TryGetValue(key + "_0", out Sprite value);
+            return value;
+        }
+        Debug.Log("spriteDict doesnt contain key " + key);
+        return null;
+    }
 
 
 }

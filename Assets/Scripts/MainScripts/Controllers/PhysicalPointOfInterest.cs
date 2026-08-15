@@ -1,13 +1,14 @@
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PhysicalPointOfInterest : MonoBehaviour
+public class PhysicalPointOfInterest : MonoBehaviour, IResettable
 {
     private PointOfInterest pointOfInterest;
     private Image mainImage;
     private TextMeshProUGUI dangerLevelText;
-    [SerializeField] private int stageInLevel; //temporary system (stage in level manual setup)
+    public int stageInLevel; //temporary system (stage in level manual setup)
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Party"))
@@ -27,8 +28,7 @@ public class PhysicalPointOfInterest : MonoBehaviour
         {
             //Debug.Log("Trying To move party from POI");
             PartyController.movePartyTo(gameObject);
-        }       
-        
+        }               
     }
 
     private void OnMouseEnter()
@@ -58,12 +58,24 @@ public class PhysicalPointOfInterest : MonoBehaviour
         pointOfInterest = GlobalDictionary.GlobalDictionaryInstance.GetPointOfInterest(poiData.name);
     }
     private void LoadUIElements()
-    {
-        mainImage = GetComponentInChildren<Image>();
-
-        dangerLevelText = GetComponentInChildren<TextMeshProUGUI>();
+    {       
+        
+        if (dangerLevelText == null)
+        {
+            dangerLevelText = GetComponentInChildren<TextMeshProUGUI>();
+            if (dangerLevelText == null)
+            {
+                Debug.Log("danger level text is null right after assigning via getcomponetn in childrne");
+            }
+        }
+        if (mainImage == null)
+        {
+            mainImage = GetComponentInChildren<Image>();
+            mainImage.sprite = GameUIManager.GameUIManagerInstance.GetSprite("DefualtPOI");
+        }
         dangerLevelText.text = pointOfInterest.pointOfInterestData.poiDangerlevel.ToString() + " Danger";
-        dangerLevelText.gameObject.SetActive(false);
+        DisablePopupUI();
+
     }
 
     private void EnablePopupUI()
@@ -73,6 +85,26 @@ public class PhysicalPointOfInterest : MonoBehaviour
     private void DisablePopupUI()
     {
         dangerLevelText.gameObject.SetActive(false);
+    }
+
+    public void ResetPOI()
+    {
+        if (pointOfInterest != null)
+        {
+            pointOfInterest = null;
+        }
+        
+        GetPointOfInterest();
+        LoadUIElements();
+        if (pointOfInterest == null)
+        {
+            Debug.Log("poi is null");
+        }
+    }
+
+    public void TriggerReset()
+    { 
+        ResetPOI();    
     }
 
 }

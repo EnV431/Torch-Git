@@ -18,6 +18,7 @@ public class GlobalDictionary : MonoBehaviour
         DontDestroyOnLoad(gameObject);
         if (GlobalDictionaryInstance != null && GlobalDictionaryInstance != this)
         {
+            Debug.Log("scene already has Instance of " + name);
             Destroy(gameObject);
             return;
         }

@@ -4,15 +4,19 @@ using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
 using Image = UnityEngine.UI.Image;
+using System;
 public class PartyController : MonoBehaviour //party moving funcs can be moved into a different script
 {
     private PartyController PartyControllerInstance { get; set; }
 
-    public static System.Action<GameObject> movePartyTo;
+    public static Action<GameObject> movePartyTo;
     public static bool canPartyMove = true;
     public static int currentStageInlevel = 1;
 
+    [SerializeField] private int skbiidlagagg; 
+
     private bool isPartyMoving = false;
+    private bool isAtPOI = false;
 
     [SerializeField]private GameObject partyMemberPrefab;
 
@@ -35,9 +39,12 @@ public class PartyController : MonoBehaviour //party moving funcs can be moved i
         PartyControllerInstance = this;
         #endregion
         ResetLevelPartyLogic();
-
     }
 
+    private void Update()
+    {
+        skbiidlagagg = currentStageInlevel;
+    }
     private void OnEnable()
     {
         movePartyTo += StartPartyMovingCoroutine;
@@ -54,7 +61,6 @@ public class PartyController : MonoBehaviour //party moving funcs can be moved i
             PassPartysVanityInfo(character, newPartyMember);
         }
     }
-
     private void PassPartysVanityInfo(Character character, GameObject newPartyMember)
     {
         CharacterVanity characterVanity = character.CharacterVanity;
@@ -71,19 +77,15 @@ public class PartyController : MonoBehaviour //party moving funcs can be moved i
     {
         isPartyMoving = true;
         canPartyMove = false;
-        StartCoroutine(MovePartyToPointOfInterest(targetDestination));
-    }
-    private void EndPartyMovingCoroutine(GameObject targetDestination)
-    {
-        StopCoroutine(MovePartyToPointOfInterest(targetDestination));
-        isPartyMoving = false;
-        canPartyMove = true;
+        Debug.Log("startting paryymove" + isPartyMoving + " " + canPartyMove);
+        StartCoroutine(MovePartyToPointOfInterest(targetDestination));        
     }
 
     IEnumerator MovePartyToPointOfInterest(GameObject targetDestination)
     {
         while (isPartyMoving == true)
         {
+            Debug.Log("moving paryy" + isPartyMoving + " " + canPartyMove);
             //Debug.Log("Coroutine is trying to move party");
             //Debug.Log(gameObject.transform.position);
             transform.position = Vector2.MoveTowards(gameObject.transform.position, targetDestination.transform.position, partyMoveSpeed);
@@ -91,18 +93,30 @@ public class PartyController : MonoBehaviour //party moving funcs can be moved i
             yield return null;
         }
     }
+
     private void CheckIfPartyAtTarget(GameObject targetDestination)
     {
-        if (gameObject.transform.position == targetDestination.transform.position)
+        float distance = Vector2.Distance(gameObject.transform.position, targetDestination.transform.position);
+        if (distance <= 0.1f) 
         {
             RunPartyArrivedAtDestinationLogic(targetDestination);
+            Debug.Log("party arruved at destination");
         }
     }
 
     private void RunPartyArrivedAtDestinationLogic(GameObject targetDestination)
     {
+        Debug.Log("arrived at destiination" + isPartyMoving + " " + canPartyMove);
         EndPartyMovingCoroutine(targetDestination);
         currentStageInlevel++;
+        //Debug.Log("PartyArrived At Destination");
+    }
+    private void EndPartyMovingCoroutine(GameObject targetDestination)
+    {
+        StopCoroutine(MovePartyToPointOfInterest(targetDestination));
+        isPartyMoving = false;
+        canPartyMove = true;
+        Debug.Log("ending paryymove" + isPartyMoving + " " + canPartyMove);
     }
 
     private void ResetLevelPartyLogic()
