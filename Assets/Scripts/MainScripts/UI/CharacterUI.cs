@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class CharacterUI : MonoBehaviour
 {
-    GameObject characterUIObject;
+    [SerializeField]GameObject characterUIObject;
 
     // UI Elements temporary
     [SerializeField] private TextMeshProUGUI NameT;
@@ -32,10 +32,21 @@ public class CharacterUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI GrainT;
     [SerializeField] private TextMeshProUGUI DairyT;
 
-    private void Awake()
+    
+    private void OnEnable()
     {
-        characterUIObject = gameObject;
+        GameUIManager.GameUIManagerInstance.ShowCharacterUI += GetCharacterForUI; //DEMO SETUP
     }
+    private void OnDisable()
+    {
+        GameUIManager.GameUIManagerInstance.ShowCharacterUI -= GetCharacterForUI; //DEMO SETUP
+    }
+
+    private void GetCharacterForUI()
+    {
+        DisplayCharacterUI(GlobalDictionary.GlobalDictionaryInstance.GetCharacter("John")); //DEMO
+    }
+
 
     public void DisplayCharacterUI(Character character)
     {

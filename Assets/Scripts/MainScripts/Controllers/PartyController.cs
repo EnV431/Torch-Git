@@ -86,7 +86,7 @@ namespace SAE.PAX.Torch.Party
         }
         private void StartPartyMovingCoroutine(GameObject targetDestination)
         {
-            if (GameUIManager.GameUIManagerInstance.IncidentUIGameObject.activeInHierarchy)
+            if (GameUIManager.GameUIManagerInstance.IncidentUIGameObject.activeInHierarchy || GameUIManager.GameUIManagerInstance.CharacterUIGameObject.activeInHierarchy)
             {
                 return;
             }

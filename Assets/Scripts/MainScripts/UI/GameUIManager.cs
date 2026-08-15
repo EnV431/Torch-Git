@@ -8,6 +8,7 @@ public class GameUIManager : MonoBehaviour
     public static GameUIManager GameUIManagerInstance { get; set; }
 
     public GameObject IncidentUIGameObject; //DEMO
+    public GameObject CharacterUIGameObject; //DEMO
     public Dictionary<string, Sprite> spriteDict = new();
 
     [SerializeField]private Sprite[] poiSprites;
@@ -16,6 +17,7 @@ public class GameUIManager : MonoBehaviour
     public Action UpdateResourceUI;
     public Action<ResourceData.ResourceType> UpdateSpecificResourceUI;
     public event Action<IncidentData> ShowIncidentUI; //the event keyword makes it so outside scrtipts can subsribe but not invoke
+    public event Action ShowCharacterUI; //DEMO SETUP
 
     void Awake()
     {
@@ -47,6 +49,15 @@ public class GameUIManager : MonoBehaviour
             Debug.Log("ShowIncidentUI is null");
         }
         ShowIncidentUI?.Invoke(incidentData);
+
+    }
+    public void InvokeShowCharacterUI() //DEMO need to update function and event = DEMO SETUP
+    {
+        if (ShowCharacterUI == null)
+        {
+            Debug.Log("ShowCharacterUI is null");
+        }
+        ShowCharacterUI?.Invoke();
 
     }
 
