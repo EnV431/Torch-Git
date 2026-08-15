@@ -35,6 +35,8 @@ public class Character
     public CharacterDietStats CharacterDietStats { get; private set; }
     public PersonalInfo PersonalInfo { get; private set; }
 
+    public CharacterVanity CharacterVanity { get; private set; }
+
     public CharacterTraitContainer[] CharacterTraits { get; private set; }
     public CharacterProficiencyContainer[] CharacterProficiencies { get; private set; }
 
@@ -51,6 +53,7 @@ public class Character
             CharacterStats = new CharacterStats(characterData.characterStats);
             CharacterDietStats = new CharacterDietStats(characterData.characterDietStats);
             PersonalInfo = characterData.personalInfo;
+            CharacterVanity = characterData.characterVanity;
             CharacterTraits = characterData.characterTraitsArray;
             CharacterProficiencies = characterData.characterProficienciesArray;
         }

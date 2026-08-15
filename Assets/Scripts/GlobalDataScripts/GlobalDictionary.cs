@@ -112,6 +112,30 @@ public class GlobalDictionary : MonoBehaviour
         else Debug.LogError(" Incident not found in Dictionary"); return null;
     }
 
+    public Incident GetIncidentByData(IncidentData incidentData)
+    {
+        if (incidentDictionary.TryGetValue(incidentData.name, out var incident))
+        {
+            ConvertIncidentToCorrectType(incident);
+            return incident;
+        }
+        else Debug.LogError(" Incident not found in Dictionary"); return null;
+    }
+
+    private Incident ConvertIncidentToCorrectType(Incident incident)
+    {
+        switch (incident)
+        {
+            case ResourceIncident:
+                return incident as ResourceIncident;
+            
+                default: return null;
+
+            
+        }
+    }
+
+
     #region AddToDictionaryLogicForDifferentIncidentTypes
 
     private void AddResourceIncident(ResourceIncident incidentShell, ResourceIncidentData resourceIncidentData) //just do this but for other incident types as well
