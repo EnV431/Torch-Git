@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using System;
 using UnityEngine.SceneManagement;
+using SAE.PAX.Torch.Party;
 
 public class GameManager : MonoBehaviour
 {
+    public static event Action ResetPlayer;
 
     public static GameManager GameManagerInstance { get; set; }
 
@@ -48,7 +50,8 @@ public class GameManager : MonoBehaviour
     public void ResetScene()
     {
         TriggerModuleUpdate();
-        SceneManager.LoadScene("Game");
+        ResetPlayer.Invoke();
+        //SceneManager.LoadScene("Game");
     }
     private void TriggerModuleUpdate()
     {

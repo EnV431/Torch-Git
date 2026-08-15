@@ -15,6 +15,8 @@ public class POIPlacer : MonoBehaviour, IGameModule
     [SerializeField] private GameObject _poiLayout;
     [SerializeField] private GameObject[] _poiLayoutArray;
 
+    private GameObject[] pois; //DEMO
+
     private GenericObjectPool _layoutPool;
 
     private void Start()
@@ -51,17 +53,18 @@ public class POIPlacer : MonoBehaviour, IGameModule
 
     public void UpdateModule()
     {
-        SetPoiLayout();
-        GetLayoutsChildren();
+        //SetPoiLayout();  TURNED OFF FOR DEMO
+        //GetLayoutsChildren(); TURNED OFF FOR DEMO
         //GiveLayoutsChildrenPois(transformArray);
+
+        foreach (GameObject item in pois)
+        {
+            item.GetComponent<PhysicalPointOfInterest>().ResetPOI();
+        }
     }
 
     private void SetPoiLayout()
     {
-        if (_poiLayout == null)
-        {
-            Destroy(_poiLayout);
-        }
         _poiLayout = Instantiate(_poiLayoutArray[Random.Range(0, _poiLayoutArray.Length)], _poiLayout.transform);        
     }
 
@@ -94,6 +97,7 @@ public class POIPlacer : MonoBehaviour, IGameModule
 
         }
         poiArray = poiFilterList.ToArray();
+        pois = poiArray;
     }
 
     private void RunPoiLogic(int stageInlevel, Transform transform, out GameObject pooledGameObject)

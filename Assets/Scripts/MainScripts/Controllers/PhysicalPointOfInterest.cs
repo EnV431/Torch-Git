@@ -2,6 +2,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using SAE.PAX.Torch.Party;
 
 public class PhysicalPointOfInterest : MonoBehaviour, IResettable
 {

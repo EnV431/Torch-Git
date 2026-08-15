@@ -5,121 +5,138 @@ using UnityEngine.UI;
 using UnityEngine.UIElements;
 using Image = UnityEngine.UI.Image;
 using System;
-public class PartyController : MonoBehaviour //party moving funcs can be moved into a different script
+
+namespace SAE.PAX.Torch.Party
 {
-    private PartyController PartyControllerInstance { get; set; }
-
-    public static Action<GameObject> movePartyTo;
-    public static bool canPartyMove = true;
-    public static int currentStageInlevel = 1;
-
-    private bool isPartyMoving = false;
-
-    [SerializeField]private GameObject partyMemberPrefab;
-
-    private List<GameObject> currentPartyGameObjects = new List<GameObject>();
-    private List<Character> currentPartyList = new List<Character>();
-
-    public IReadOnlyList<Character> CurrentPartyList => currentPartyList;
-
-    public float partyMoveSpeed;
-
-
-
-    private void Awake()
+    public class PartyController : MonoBehaviour //party moving funcs can be moved into a different script
     {
-        #region SingletonSetup
-        if (PartyControllerInstance != null && PartyControllerInstance != this)
+        public Vector2 playerSpawn; //DEMO
+
+        private PartyController PartyControllerInstance { get; set; }
+
+        public static Action<GameObject> movePartyTo;
+        public static bool canPartyMove = true;
+        public static int currentStageInlevel = 1;
+
+        private bool isPartyMoving = false;
+
+        [SerializeField] private GameObject partyMemberPrefab;
+
+        private List<GameObject> currentPartyGameObjects = new List<GameObject>();
+        private List<Character> currentPartyList = new List<Character>();
+
+        public IReadOnlyList<Character> CurrentPartyList => currentPartyList;
+
+        public float partyMoveSpeed;
+
+
+
+        private void Awake()
         {
-            Destroy(gameObject);
-            return;
+            playerSpawn = transform.position; //DEMO
+
+            #region SingletonSetup
+            if (PartyControllerInstance != null && PartyControllerInstance != this)
+            {
+                Destroy(gameObject);
+                return;
+            }
+            PartyControllerInstance = this;
+            #endregion
+            ResetLevelPartyLogic();
         }
-        PartyControllerInstance = this;
-        #endregion
-        ResetLevelPartyLogic();
-    }
-
-    private void OnEnable()
-    {
-        movePartyTo += StartPartyMovingCoroutine;
-    }
-    private void OnDisable()
-    {
-        movePartyTo -= StartPartyMovingCoroutine;
-    }
-
-    private void InstantiatePartyMembers()
-    {
-        foreach (Character character in currentPartyList)
+        public void ResetPlayerPosition() //DEMO
         {
-            GameObject newPartyMember = Instantiate(partyMemberPrefab);
-            PassPartysVanityInfo(character, newPartyMember);
+            transform.position = playerSpawn; //DEMO
+            ResetLevelPartyLogic(); 
         }
-    }
-    private void PassPartysVanityInfo(Character character, GameObject newPartyMember)
-    {
-        CharacterVanity characterVanity = character.CharacterVanity;
-        SetCharactersVanity(newPartyMember, in characterVanity);
-    }
-    private void SetCharactersVanity(GameObject newPartyMember, in CharacterVanity characterVanity)
-    {
-        Image image = newPartyMember.GetComponent<Image>();
-        image.sprite = characterVanity.sprite;
-        Animation animation = newPartyMember.GetComponent<Animation>();
-        animation = characterVanity.animation;
-    }
-    private void StartPartyMovingCoroutine(GameObject targetDestination)
-    {
-        if (GameUIManager.GameUIManagerInstance.IncidentUIGameObject.activeInHierarchy)
+
+        private void OnEnable()
         {
-            return;
-        }
-        isPartyMoving = true;
-        canPartyMove = false;
-        //Debug.Log("starting partymove" + isPartyMoving + " " + canPartyMove);
-        StartCoroutine(MovePartyToPointOfInterest(targetDestination));        
-    }
+            movePartyTo += StartPartyMovingCoroutine;
 
-    IEnumerator MovePartyToPointOfInterest(GameObject targetDestination)
-    {
-        while (isPartyMoving == true)
+            GameManager.ResetPlayer += ResetPlayerPosition; //DEMO
+        }
+        private void OnDisable()
         {
-           // Debug.Log("moving party" + isPartyMoving + " " + canPartyMove);
-            transform.position = Vector2.MoveTowards(gameObject.transform.position, targetDestination.transform.position, partyMoveSpeed);
-            CheckIfPartyAtTarget(targetDestination);
-            yield return null;
-        }
-    }
+            movePartyTo -= StartPartyMovingCoroutine;
 
-    private void CheckIfPartyAtTarget(GameObject targetDestination)
-    {
-        float distance = Vector2.Distance(gameObject.transform.position, targetDestination.transform.position);
-        if (distance <= 0.1f) 
+            GameManager.ResetPlayer -= ResetPlayerPosition; //DEMO
+        }
+
+        private void InstantiatePartyMembers()
         {
-            RunPartyArrivedAtDestinationLogic(targetDestination);
-            
+            foreach (Character character in currentPartyList)
+            {
+                GameObject newPartyMember = Instantiate(partyMemberPrefab);
+                PassPartysVanityInfo(character, newPartyMember);
+            }
         }
-    }
+        private void PassPartysVanityInfo(Character character, GameObject newPartyMember)
+        {
+            CharacterVanity characterVanity = character.CharacterVanity;
+            SetCharactersVanity(newPartyMember, in characterVanity);
+        }
+        private void SetCharactersVanity(GameObject newPartyMember, in CharacterVanity characterVanity)
+        {
+            Image image = newPartyMember.GetComponent<Image>();
+            image.sprite = characterVanity.sprite;
+            Animation animation = newPartyMember.GetComponent<Animation>();
+            animation = characterVanity.animation;
+        }
+        private void StartPartyMovingCoroutine(GameObject targetDestination)
+        {
+            if (GameUIManager.GameUIManagerInstance.IncidentUIGameObject.activeInHierarchy)
+            {
+                return;
+            }
+            isPartyMoving = true;
+            canPartyMove = false;
+            //Debug.Log("starting partymove" + isPartyMoving + " " + canPartyMove);
+            StartCoroutine(MovePartyToPointOfInterest(targetDestination));
+        }
 
-    private void RunPartyArrivedAtDestinationLogic(GameObject targetDestination)
-    {
-        EndPartyMovingCoroutine(targetDestination);
-        currentStageInlevel++;
-        //Debug.Log("PartyArrived At Destination");
-    }
-    private void EndPartyMovingCoroutine(GameObject targetDestination)
-    {
-        StopCoroutine(MovePartyToPointOfInterest(targetDestination));
-        isPartyMoving = false;
-        canPartyMove = true;
-        Debug.Log("ending paryymove" + isPartyMoving + " " + canPartyMove);
-    }
+        IEnumerator MovePartyToPointOfInterest(GameObject targetDestination)
+        {
+            while (isPartyMoving == true)
+            {
+                // Debug.Log("moving party" + isPartyMoving + " " + canPartyMove);
+                transform.position = Vector2.MoveTowards(gameObject.transform.position, targetDestination.transform.position, partyMoveSpeed);
+                CheckIfPartyAtTarget(targetDestination);
+                yield return null;
+            }
+        }
 
-    private void ResetLevelPartyLogic()
-    {
-        canPartyMove = true;
-        isPartyMoving = false;
-        currentStageInlevel = 1;
-    
+        private void CheckIfPartyAtTarget(GameObject targetDestination)
+        {
+            float distance = Vector2.Distance(gameObject.transform.position, targetDestination.transform.position);
+            if (distance <= 0.1f)
+            {
+                RunPartyArrivedAtDestinationLogic(targetDestination);
+
+            }
+        }
+
+        private void RunPartyArrivedAtDestinationLogic(GameObject targetDestination)
+        {
+            EndPartyMovingCoroutine(targetDestination);
+            currentStageInlevel++;
+            //Debug.Log("PartyArrived At Destination");
+        }
+        private void EndPartyMovingCoroutine(GameObject targetDestination)
+        {
+            StopCoroutine(MovePartyToPointOfInterest(targetDestination));
+            isPartyMoving = false;
+            canPartyMove = true;
+            Debug.Log("ending paryymove" + isPartyMoving + " " + canPartyMove);
+        }
+
+        private void ResetLevelPartyLogic()
+        {
+            canPartyMove = true;
+            isPartyMoving = false;
+            currentStageInlevel = 1;
+
+        }
     }
 }
