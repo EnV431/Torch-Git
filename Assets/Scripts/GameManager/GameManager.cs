@@ -49,9 +49,13 @@ public class GameManager : MonoBehaviour
 
     public void ResetScene()
     {
-        TriggerModuleUpdate();
-        ResetPlayer.Invoke();
-        //SceneManager.LoadScene("Game");
+        if (PartyController.currentStageInlevel == 6) //DEMO
+        {
+            TriggerModuleUpdate();
+            ResetPlayer.Invoke();
+            //SceneManager.LoadScene("Game");
+        }
+
     }
     private void TriggerModuleUpdate()
     {
