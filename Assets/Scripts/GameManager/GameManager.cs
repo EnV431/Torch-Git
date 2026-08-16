@@ -63,6 +63,7 @@ public class GameManager : MonoBehaviour
         ResetPlayer.Invoke();
         GetModule<IGameStartSetupModule>().ResetModule();
         gameOverCanvas.SetActive(true);
+        
     }
     private void TriggerModuleUpdate()
     {

@@ -282,6 +282,10 @@ PrefabInstance:
       propertyPath: GameOverCanvas
       value: 
       objectReference: {fileID: 1723522888}
+    - target: {fileID: 5843912167211780276, guid: dd185a9d32ba8d44583b897c2528da8a, type: 3}
+      propertyPath: gameOverCanvas
+      value: 
+      objectReference: {fileID: 1723522888}
     - target: {fileID: 8711232600798261585, guid: dd185a9d32ba8d44583b897c2528da8a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -839,8 +843,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 179, y: -174}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 215.8327, y: -215.53479}
+  m_SizeDelta: {x: 233.6654, y: 113.0696}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &772080712
 MonoBehaviour:
@@ -2207,8 +2211,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -0.62957764, y: -0.28799438}
+  m_SizeDelta: {x: 440.8293, y: 201.7926}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1723522890
 MonoBehaviour:
@@ -2526,8 +2530,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -118, y: -175}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: -146.99603, y: -211.83276}
+  m_SizeDelta: {x: 217.992, y: 103.6655}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1860822474
 MonoBehaviour:
@@ -2576,6 +2580,30 @@ MonoBehaviour:
       - m_Target: {fileID: 1723522893}
         m_TargetAssemblyTypeName: GameOverButtons, Assembly-CSharp
         m_MethodName: CloseGameObject
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 3685259838641884192}
+        m_TargetAssemblyTypeName: IncidentUI, Assembly-CSharp
+        m_MethodName: DisableIncidentUI
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5514956908912352450}
+        m_TargetAssemblyTypeName: CharacterUI, Assembly-CSharp
+        m_MethodName: TurnOffCharacterUIObject
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
