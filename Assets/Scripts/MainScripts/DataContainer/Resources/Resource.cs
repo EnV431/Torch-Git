@@ -1,8 +1,19 @@
 using System;
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Resource
 {
+
+    private void CheckForLoseGame() //DEMO
+    {
+        if (_amount <= 0)
+        {
+            GameManager.GameManagerInstance.ResetSceneAfterLose();
+        }
+    }
+
     public ResourceData resourceData;
 
     private int _amount;
@@ -11,6 +22,7 @@ public class Resource
     public void ChangeAmount(int amountToChange)
     { 
         _amount += amountToChange;
+        CheckForLoseGame(); //DEMO
         ContainAmountWithinBounds();
         CheckAndContainIfCapped();
     }
@@ -18,6 +30,7 @@ public class Resource
     public void SetAmount(int amountToSet)
     { 
         _amount = amountToSet;
+        CheckForLoseGame(); //DEMO
         ContainAmountWithinBounds();
         CheckAndContainIfCapped();
     }

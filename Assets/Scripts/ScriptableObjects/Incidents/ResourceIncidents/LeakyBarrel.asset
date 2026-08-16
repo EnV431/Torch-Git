@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f172b6f59e7985e42815829c11ba528f, type: 3}
+  m_Name: LeakyBarrel
+  m_EditorClassIdentifier: 
+  IncidentDetails:
+    isNegative: 0
+    incidentName: Leaky Barrel
+    chanceToHappen: 40
+    incidentDescription: You notice a hole in one of your water barrel.
+    incidentTypeId: 0
+    incidentImage: {fileID: 0}
+  AttackerDetails:
+    isAttacker: 0
+    attackPower: 0
+    attackerEvilLevel: 0
+  resourceChangesArray:
+  - resourceType: 1
+    amountToChange: -20

@@ -19,7 +19,7 @@ public class IGameStartSetupModule : MonoBehaviour, IGameModule
     public void ResetModule()
     {
         SetResourceValuesToChosenDifficulty();
-        OnResetGame?.Invoke();
+        //OnResetGame?.Invoke();
     }
 
     public void UpdateModule()

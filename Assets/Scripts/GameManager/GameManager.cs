@@ -7,6 +7,7 @@ using SAE.PAX.Torch.Party;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] GameObject gameOverCanvas; //DEMO
     public static event Action ResetPlayer;
 
     public static GameManager GameManagerInstance { get; set; }
@@ -55,7 +56,13 @@ public class GameManager : MonoBehaviour
             ResetPlayer.Invoke();
             //SceneManager.LoadScene("Game");
         }
-
+    }
+    public void ResetSceneAfterLose() //DEMO
+    {
+        TriggerModuleUpdate();
+        ResetPlayer.Invoke();
+        GetModule<IGameStartSetupModule>().ResetModule();
+        gameOverCanvas.SetActive(true);
     }
     private void TriggerModuleUpdate()
     {

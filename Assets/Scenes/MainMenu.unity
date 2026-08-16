@@ -446,7 +446,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2488586327624568846, guid: a82ed754c5d30d7468a669662657e389, type: 3}
       propertyPath: incidentDataList.Array.size
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2488586327624568846, guid: a82ed754c5d30d7468a669662657e389, type: 3}
       propertyPath: 'incidentDataList.Array.data[0]'
@@ -485,8 +485,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 0830fc26f346c7f4fb92535e4ba1ab11, type: 2}
     - target: {fileID: 2488586327624568846, guid: a82ed754c5d30d7468a669662657e389, type: 3}
+      propertyPath: 'incidentDataList.Array.data[9]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 0fe9840914920f84699bac32fea5fa60, type: 2}
+    - target: {fileID: 2488586327624568846, guid: a82ed754c5d30d7468a669662657e389, type: 3}
       propertyPath: pointOfInterestDataList.Array.size
-      value: 9
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 2488586327624568846, guid: a82ed754c5d30d7468a669662657e389, type: 3}
       propertyPath: 'pointOfInterestDataList.Array.data[0]'
@@ -524,6 +528,26 @@ PrefabInstance:
       propertyPath: 'pointOfInterestDataList.Array.data[8]'
       value: 
       objectReference: {fileID: 11400000, guid: 313ff72133d3c3140b06f14c927b8313, type: 2}
+    - target: {fileID: 2488586327624568846, guid: a82ed754c5d30d7468a669662657e389, type: 3}
+      propertyPath: 'pointOfInterestDataList.Array.data[9]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 25c5932e94784f441955481d02a7bcc5, type: 2}
+    - target: {fileID: 2488586327624568846, guid: a82ed754c5d30d7468a669662657e389, type: 3}
+      propertyPath: 'pointOfInterestDataList.Array.data[10]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 6a6928164f3aae641ba6f07817660ed9, type: 2}
+    - target: {fileID: 2488586327624568846, guid: a82ed754c5d30d7468a669662657e389, type: 3}
+      propertyPath: 'pointOfInterestDataList.Array.data[11]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 431c2aafa5d49534cad0670486dcd362, type: 2}
+    - target: {fileID: 2488586327624568846, guid: a82ed754c5d30d7468a669662657e389, type: 3}
+      propertyPath: 'pointOfInterestDataList.Array.data[12]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 2f68efa4266912449b43647029db89a6, type: 2}
+    - target: {fileID: 2488586327624568846, guid: a82ed754c5d30d7468a669662657e389, type: 3}
+      propertyPath: 'pointOfInterestDataList.Array.data[13]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 04b2abb6b23902c4e807952d7fbd95e7, type: 2}
     - target: {fileID: 4473927668918189319, guid: a82ed754c5d30d7468a669662657e389, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
