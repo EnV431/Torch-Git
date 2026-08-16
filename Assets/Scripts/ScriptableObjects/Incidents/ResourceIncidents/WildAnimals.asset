@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: WildAnimals
   m_EditorClassIdentifier: 
   IncidentDetails:
-    isNegative: 0
+    isNegative: 1
     incidentName: Wild Animals
     chanceToHappen: 10
     incidentDescription: After setting up camp and resting for the night, you awaken
