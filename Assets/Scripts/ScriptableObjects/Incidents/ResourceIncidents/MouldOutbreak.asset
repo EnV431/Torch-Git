@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f172b6f59e7985e42815829c11ba528f, type: 3}
+  m_Name: MouldOutbreak
+  m_EditorClassIdentifier: 
+  IncidentDetails:
+    isNegative: 1
+    incidentName: Mould Outbreak
+    chanceToHappen: 15
+    incidentDescription: Whilst travelling, the stomachs of your caravan members
+      all seem to rumble in unison. Through unspoken communication the caravan slows
+      so the food stores can be accessed.  However as several sacks and crates are
+      opened the odour of rot becomes immediately apparent.   Hopeful and hungry
+      looks turn slightly grim as you discover that a small leak in the wagon has
+      allowed water to seep into some of the food and turn a portion mouldy.  You
+      are forced to dump all the unsafe food.
+    incidentTypeId: 1
+    incidentImage: {fileID: 0}
+  AttackerDetails:
+    isAttacker: 0
+    attackPower: 0
+    attackerEvilLevel: 0
+  resourceChangesArray:
+  - resourceType: 0
+    amountToChange: -10

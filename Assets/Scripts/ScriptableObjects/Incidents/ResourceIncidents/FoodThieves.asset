@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f172b6f59e7985e42815829c11ba528f, type: 3}
+  m_Name: FoodThieves
+  m_EditorClassIdentifier: 
+  IncidentDetails:
+    isNegative: 1
+    incidentName: Blankets and Blunders
+    chanceToHappen: 20
+    incidentDescription: "Just before reaching your destination, your caravan is
+      forced to stop by two figures blocking the middle of the road. Normally you
+      would suspect the worst, but the two individuals are dirty and tagged looking,
+      wearing little but scraps of clothing, and are clearly unarmed.   With your
+      caravan stopped, unable to continue without running the ragged figures down,
+      they are able to approach the head wagon. The leader of the caravan shouts
+      out to them, asking their business, and they respond.  \u201CBlankets for sale!\u201D
+      They both call out in a pathetic attempt at a salesman's voice. Surely enough
+      they are carrying bundles of dirty cloth that could arguably be called blankets.  
+      The members of your caravan are a little dumbstruck as the dirty hawkers continue
+      to repeat themselves. \u201COnly one gold for a hand knitted blanket!\u201D
+      They repeat, getting much too close for comfort and all but shoving the dirty
+      blankets towards members of your caravan. They continue like this for some
+      time and ignore any attempt to communicate that you are not interested in purchasing
+      dirty blankets and need them to get out of the road.   Then someone from your
+      caravan shouts out \u201CSomeone has stolen from us! Our food has been ransacked!\u201D
+      The caravan\u2019s attention shifts to see that your food stores have indeed
+      been ransacked. Sensing foul play, your caravan leader angrily turns back towards
+      the dirty blankets sellers only to see their retreating backs as they run away,
+      disappearing into the woods.   You have been robbed by scurrilous thieves."
+    incidentTypeId: 0
+    incidentImage: {fileID: 0}
+  AttackerDetails:
+    isAttacker: 0
+    attackPower: 0
+    attackerEvilLevel: 0
+  resourceChangesArray:
+  - resourceType: 0
+    amountToChange: -20

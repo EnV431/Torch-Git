@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f172b6f59e7985e42815829c11ba528f, type: 3}
+  m_Name: Charity
+  m_EditorClassIdentifier: 
+  IncidentDetails:
+    isNegative: 0
+    incidentName: Singing Pilgrims
+    chanceToHappen: 15
+    incidentDescription: "The sounds of ringing bells and strange singing can be
+      heard long before you can see the foreign group of travelers. As they grow
+      close they hail your caravan and approach. They are religious pilgrims spreading
+      cheer and charity, they say. Whilst you can\u2019t speak to their musical taste,
+      you are not one to turn down freely given goods.  The pilgrims eventually carry
+      on their way, the singing growing quieter and quieter and your caravan is left
+      with an addition of tasty flat breads and preserved meats. "
+    incidentTypeId: 0
+    incidentImage: {fileID: 0}
+  AttackerDetails:
+    isAttacker: 0
+    attackPower: 0
+    attackerEvilLevel: 0
+  resourceChangesArray:
+  - resourceType: 0
+    amountToChange: 15

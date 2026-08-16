@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f172b6f59e7985e42815829c11ba528f, type: 3}
+  m_Name: Fishing
+  m_EditorClassIdentifier: 
+  IncidentDetails:
+    isNegative: 0
+    incidentName: Surprise Fishing
+    chanceToHappen: 15
+    incidentDescription: "Your caravan is travelling by a fresh river and decides
+      to stop to replenish your water. You are filling a bucket at the waters edge
+      when a whole salmon jumps out of the water right into the bucket you\u2019re
+      holding. Before you can recover from the surprise the whole river comes alive
+      as dozen, hundreds, maybe even thousands of salmon start jumping from the water.
+      Most of them splash back into the water, but in their strange frenzied spur
+      of acrobatics a good fraction of them land on the river bank and begin flopping
+      about. Seeing the opportunity for what it is, the members of your caravan each
+      grab a bucket and try to catch as many of the fish as they fly through the
+      air or flop about at the waters edge. Once the frenzy dies down, everyone is
+      soaking wet, smelly, and breathing hard. But it's not long before smiles break
+      out and everyone starts to laugh. The good mood sticks around until well after
+      everyone has had their fill of fire roasted fish. "
+    incidentTypeId: 0
+    incidentImage: {fileID: 0}
+  AttackerDetails:
+    isAttacker: 0
+    attackPower: 0
+    attackerEvilLevel: 0
+  resourceChangesArray:
+  - resourceType: 1
+    amountToChange: 20
+  - resourceType: 0
+    amountToChange: 20
