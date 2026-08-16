@@ -25,4 +25,4 @@ MonoBehaviour:
     attackerEvilLevel: 0
   resourceChangesArray:
   - resourceType: 1
-    amountToChange: -20
+    amountToChange: -40
