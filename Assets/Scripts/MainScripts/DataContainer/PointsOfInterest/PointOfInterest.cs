@@ -17,6 +17,7 @@ public class PointOfInterest
     public void RunPointOfInterestLogic()
     {        
         AttemptToTriggerIncidents();
+        canChange = true;//DEMO
     }
 
     private void AttemptToTriggerIncidents()
@@ -68,10 +69,10 @@ public class PointOfInterest
                     // Doesnt Change
                     break;
                 case PointOfInterestData.POIDangerLevel.High:
-                    triggerChance += 5;
+                    triggerChance += 15;
                     break;
                 case PointOfInterestData.POIDangerLevel.Dangerous:
-                    triggerChance += 15;
+                    triggerChance += 30;
                     break;
             }
         }
@@ -95,6 +96,7 @@ public class PointOfInterest
         if (canChange == false) return; //DEMO
         incident.TriggerIncidentExecution();
         GameUIManager.GameUIManagerInstance.InvokeShowIncidentUI(incident.IncidentData);
+        canChange = false; //DEMO
     }
 
     private void RunAttackedLogic(in AttackerDetails attackerDetails)
@@ -110,9 +112,5 @@ public class PointOfInterest
 
     } //will run after the incident has been triggered
 
-    private void StopTriggering() //DEMO
-    {
-        canChange = false;
-    }
 
 }

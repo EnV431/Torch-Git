@@ -28,9 +28,9 @@ public class ResourcesUI : MonoBehaviour //placeholder UI
     public void UpdateAllResourceUI()
     {
         Debug.Log("Updating all resource UI");
-        foodDisplay.text = GlobalDictionary.GlobalDictionaryInstance.GetResource(ResourceData.ResourceType.Food).Amount.ToString();
-        waterDisplay.text = GlobalDictionary.GlobalDictionaryInstance.GetResource(ResourceData.ResourceType.Water).Amount.ToString();
-        moneyDisplay.text = GlobalDictionary.GlobalDictionaryInstance.GetResource(ResourceData.ResourceType.Money).Amount.ToString();
+        foodDisplay.text = "Food: " + GlobalDictionary.GlobalDictionaryInstance.GetResource(ResourceData.ResourceType.Food).Amount.ToString();
+        waterDisplay.text = "Water:" +GlobalDictionary.GlobalDictionaryInstance.GetResource(ResourceData.ResourceType.Water).Amount.ToString();
+        moneyDisplay.text = "Money: " + GlobalDictionary.GlobalDictionaryInstance.GetResource(ResourceData.ResourceType.Money).Amount.ToString();
         happinessDisplay.text = GlobalDictionary.GlobalDictionaryInstance.GetResource(ResourceData.ResourceType.Happiness).Amount.ToString();
         securityDisplay.text = GlobalDictionary.GlobalDictionaryInstance.GetResource(ResourceData.ResourceType.Security).Amount.ToString();
         lightLevelDisplay.text = GlobalDictionary.GlobalDictionaryInstance.GetResource(ResourceData.ResourceType.LightLevel).Amount.ToString();    

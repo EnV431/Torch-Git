@@ -15,7 +15,7 @@ MonoBehaviour:
   IncidentDetails:
     isNegative: 1
     incidentName: Blankets and Blunders
-    chanceToHappen: 20
+    chanceToHappen: 40
     incidentDescription: "Just before reaching your destination, your caravan is
       forced to stop by two figures blocking the middle of the road. Normally you
       would suspect the worst, but the two individuals are dirty and tagged looking,

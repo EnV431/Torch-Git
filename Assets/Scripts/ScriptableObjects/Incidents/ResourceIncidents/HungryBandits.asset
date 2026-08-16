@@ -15,7 +15,7 @@ MonoBehaviour:
   IncidentDetails:
     isNegative: 1
     incidentName: Hungry Bandits
-    chanceToHappen: 30
+    chanceToHappen: 40
     incidentDescription: 'After reaching your destination and setting up camp for
       the night, your caravan is awoken by the sounds of heavy footsteps, harsh voices
       and the sound of weapons being unsheathed.  It seems a small group of bandits

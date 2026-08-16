@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 05d7106714ac28e40ab09544d8e61af1, type: 3}
-  m_Name: Abandonded Wagon
+  m_Name: Swamp
   m_EditorClassIdentifier: 
-  poiDangerlevel: 1
-  pointOfInterestDescription: You come across an abandonded wagon
+  poiDangerlevel: 3
+  pointOfInterestDescription: 
   possibleIncidents:
-  - {fileID: 11400000, guid: 1d8a4fa2e0a2f8c47bf24cde2f3f910f, type: 2}
-  - {fileID: 11400000, guid: 86f66c122bf086d46b8cce2163faafbb, type: 2}
-  - {fileID: 11400000, guid: 74b5e6eca84faaa42aebf14d5379e678, type: 2}
+  - {fileID: 11400000, guid: 0830fc26f346c7f4fb92535e4ba1ab11, type: 2}
+  - {fileID: 11400000, guid: 6408f2036f8ac9748b3783651f47305f, type: 2}
+  - {fileID: 11400000, guid: 1a0669f4f0f272b42b5d8953ed0b0a7d, type: 2}

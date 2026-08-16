@@ -10,11 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 05d7106714ac28e40ab09544d8e61af1, type: 3}
-  m_Name: Abandonded Wagon
+  m_Name: CoastalTown
   m_EditorClassIdentifier: 
-  poiDangerlevel: 1
-  pointOfInterestDescription: You come across an abandonded wagon
+  poiDangerlevel: 0
+  pointOfInterestDescription: 
   possibleIncidents:
-  - {fileID: 11400000, guid: 1d8a4fa2e0a2f8c47bf24cde2f3f910f, type: 2}
+  - {fileID: 11400000, guid: 26b4f609475b26b43a480242d46d35a9, type: 2}
   - {fileID: 11400000, guid: 86f66c122bf086d46b8cce2163faafbb, type: 2}
-  - {fileID: 11400000, guid: 74b5e6eca84faaa42aebf14d5379e678, type: 2}
