@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: LeakyBarrel
   m_EditorClassIdentifier: 
   IncidentDetails:
-    isNegative: 0
+    isNegative: 1
     incidentName: Leaky Barrel
     chanceToHappen: 40
     incidentDescription: You notice a hole in one of your water barrel.

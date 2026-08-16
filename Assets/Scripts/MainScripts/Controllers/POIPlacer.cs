@@ -1,11 +1,5 @@
-using NUnit.Framework;
 using System.Collections.Generic;
-using System.Diagnostics.Tracing;
-using System.Runtime.CompilerServices;
-using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
-using static UnityEditor.Progress;
 
 public class POIPlacer : MonoBehaviour, IGameModule
 {
