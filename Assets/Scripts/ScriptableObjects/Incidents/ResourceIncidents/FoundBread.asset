@@ -14,10 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IncidentDetails:
     isNegative: 0
-    incidentName: Found Bread
+    incidentName: Doughy Bounty
     chanceToHappen: 80
-    incidentDescription: You found some spare bread
+    incidentDescription: 'As you reach your destination your caravan passes an abandoned
+      baker''s cart by the side of the road which has quite obviously split it''s
+      axle and completely thrown one of its wheels, the ring of wood lying splintered
+      nearby. The owner seems nowhere to be found.  Whilst salvaging the cart is
+      beyond your means, upon further inspection the cart is found to be nearly full,
+      what you would guess is some poor baker''s entire delivery.  The cart is fairly
+      well sealed, so the breads and other baked goods inside are only mildly stale
+      allowing you to restock your own food stores. '
     incidentTypeId: 1
+    incidentImage: {fileID: 0}
   AttackerDetails:
     isAttacker: 0
     attackPower: 0

@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f172b6f59e7985e42815829c11ba528f, type: 3}
+  m_Name: HungryBandits
+  m_EditorClassIdentifier: 
+  IncidentDetails:
+    isNegative: 1
+    incidentName: Hungry Bandits
+    chanceToHappen: 30
+    incidentDescription: 'After reaching your destination and setting up camp for
+      the night, your caravan is awoken by the sounds of heavy footsteps, harsh voices
+      and the sound of weapons being unsheathed.  It seems a small group of bandits
+      have caught you by surprise. You are unable to reasonably mount a defense with
+      blades quite literally already at your throats. Thankfully they don''t want
+      blood, and simply begin to ransack your food supplies.   Your caravan watches
+      on impotently as sacks and barrels disappear into the woods carried by the
+      bandits.  After the men and women of ill morals are gone, the caravan is left
+      on high alert and nobody gets much rest.   Unfortunately the damage is already
+      done.  You lose 30 food '
+    incidentTypeId: 1
+    incidentImage: {fileID: 0}
+  AttackerDetails:
+    isAttacker: 1
+    attackPower: 30
+    attackerEvilLevel: 1
+  resourceChangesArray:
+  - resourceType: 0
+    amountToChange: -30
