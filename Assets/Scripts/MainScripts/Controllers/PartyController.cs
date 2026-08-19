@@ -29,6 +29,7 @@ namespace SAE.PAX.Torch.Party
 
         public float partyMoveSpeed;
 
+        [SerializeField]private int _totalPartyMoveChecks = 10;
 
 
         private void Awake()
@@ -98,6 +99,8 @@ namespace SAE.PAX.Torch.Party
 
         IEnumerator MovePartyToPointOfInterest(GameObject targetDestination)
         {
+            float[] movePointArray = GetDistanceChunks(targetDestination.transform.position);
+
             while (isPartyMoving == true)
             {
                 // Debug.Log("moving party" + isPartyMoving + " " + canPartyMove);
@@ -106,15 +109,45 @@ namespace SAE.PAX.Torch.Party
                 yield return null;
             }
         }
+        #region SimpleCoroutineControls
+        private void PauseMovePartyRoutine()
+        {
+            isPartyMoving = false;        
+        }
+        private void ResumeMovePartyRoutine()
+        {
+            isPartyMoving = true;        
+        }
+        #endregion
+
+        private float[] GetDistanceChunks(Vector2 targetDestination)
+        {
+            float ogDistance = Vector2.Distance(gameObject.transform.position, targetDestination);
+            float distanceChunk = ogDistance / _totalPartyMoveChecks;
+
+            float[] movePointsArray = new float[_totalPartyMoveChecks];
+
+            for (int i = 0; i < _totalPartyMoveChecks; i++)
+            {
+                movePointsArray[i] = distanceChunk;
+                Debug.Log(movePointsArray.Length + " " + distanceChunk);
+            }
+            return movePointsArray;
+
+        }
 
         private void CheckIfPartyAtTarget(GameObject targetDestination)
         {
             float distance = Vector2.Distance(gameObject.transform.position, targetDestination.transform.position);
             if (distance <= 0.1f)
             {
-                RunPartyArrivedAtDestinationLogic(targetDestination);
-
+                RunPartyArrivedAtDestinationLogic(targetDestination);                
             }
+        }
+
+        private void AttemptToTriggerIncidentWhilePartyIsMoving()
+        {
+            Debug.Log(" the party is being attacked while travelling");     
         }
 
         private void RunPartyArrivedAtDestinationLogic(GameObject targetDestination)
@@ -128,7 +161,7 @@ namespace SAE.PAX.Torch.Party
             StopCoroutine(MovePartyToPointOfInterest(targetDestination));
             isPartyMoving = false;
             canPartyMove = true;
-            Debug.Log("ending paryymove" + isPartyMoving + " " + canPartyMove);
+            //Debug.Log("ending paryymove" + isPartyMoving + " " + canPartyMove);
         }
 
         private void ResetLevelPartyLogic()
